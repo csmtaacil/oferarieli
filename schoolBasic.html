@@ -1,0 +1,68 @@
+{% assign hebrew = false %}
+{% if page.url contains '_he' %}
+	{% assign hebrew = true %}
+{% endif %}
+<h2 style="margin-top: 30px; margin-bottom: 30px;">
+{% if hebrew %}
+דיקאן:
+<a href='http://www2.mta.ac.il/~gideon/'>
+גדעון דרור <span dir='ltr' style='font-size: xx-small'>(2016-)</span>
+{% else %}
+Dean:
+<a href='http://www2.mta.ac.il/~gideon/'>
+ Gideon Dror <span style='font-size: xx-small'>(2016-)</span>
+{% endif %}
+</a>
+</h2>
+<table style="margin-bottom: 25px; border: 0;">
+<tr style="background-color: #DCDCDC;">
+<td style="vertical-align: middle; font-size: 200%; font-weight: bold;">
+{% if hebrew %}
+על בית-הספר
+{% else %}
+About the school
+{% endif %}
+</td>
+<td style=" padding: 25px;">
+<p style='background-color: #DCDCDC;  text-align: justify; text-justify: inter-word;'>
+{% if hebrew %}
+בית הספר למדעי המחשב נוסד בשנת 1994 
+ביחד עם הקמתה של המכללה האקדמית 
+תל&#1470;אביב-יפו
+ הממוקמת,
+ מן הסתם,
+בתל&#1470;אביב-יפו.
+בית הספר נחשב לאחד מהגדולים בארץ ומציע לימודים לתואר ראשון ולתואר שני במדעי המחשב,
+תוך שאיפה למצויינות הן בלימודים התאורטיים והן בלימודים המעשיים.
+רוב הסטודנטים משתלבים בהצלחה בתעשיית ההי-טק בארץ וחלקם ממשיכים ללימודים גבוהים באוניברסיטאות בארץ ובעולם.
+סגל בית הספר משקיע את זמנו הן בהוראה והן במחקר.
+בין הנושאים הנחקרים העקריים ניתן למצוא את הנושאים הבאים:
+למידת מכונה,
+בינה מלאכותית,
+אלגוריתמים ומדעי המחשב התאורטיים,
+הוראת מדעי המחשב,
+מתמטיקה ובפרט תורת החבורות,
+לוגיקה וקומבינטוריקה.
+{% else %}
+	The School of Computer Science was established in 1994
+	with the inauguration of the Academic College of Tel&#1470;Aviv-Yaffo,
+		which is located in, well, Tel&#1470;Aviv-Yaffo. 
+The school is considered one of the largest in Israel,
+	and offers both B.Sc. and M.Sc. degrees in Computer Science,
+		while striving to maintain a high level in both the theoretical and practical studies. 
+The majority of our students integrate successfully into the high-tech industry,
+	and some proceed to higher academic studies in leading universities
+		in Israel and worldwide. 
+Our staff is dedicated to both teaching and research.
+Among the main research fields explored by our staff are 
+	Machine Learning, Artificial Intelligence,
+		Algorithms and Theoretical Computer Science, 
+			Computer Science Education, 
+				Mathematics and in particular Group Theory, Logic and Combinatorics.  
+{% endif %}
+</p>
+</td>
+</tr>
+</table>
+
+

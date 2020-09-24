@@ -1,0 +1,103 @@
+{% assign hebrew = false %}
+{% if page.url contains '_he' %}
+	{% assign hebrew = true %}
+{% endif %}
+
+
+<h2 style="margin-top: 30px; margin-bottom: 30px;">
+{% if hebrew %}
+דיקאנים קודמים
+{% else %}
+Former Deans
+{% endif %}
+</h2>
+
+<table style='margin-bottom: 30px;'>
+<tr>
+<td>
+
+<table style='border-style: none; text-align: center;'>
+	<tr><td><a href='http://www2.mta.ac.il/~michalp'>
+	{% if hebrew %}
+		מיכל פרנס <span style='font-size: xx-small'>(2011-2016)</span>
+	{% else %}
+		Michal Parnas <span style='font-size: xx-small'>(2011-2016)</span>
+	{% endif %}
+	</a></td></tr>
+</table>
+</td>
+<td>
+<table style='border-style: none; text-align: center;'>
+	<tr><td><a href='http://www2.mta.ac.il/~epstein'>
+	{% if hebrew %}
+		בוריס אפשטיין <span style='font-size: xx-small'>(2004-2010)</span>
+		{% else %}
+		Boris Epstein <span style='font-size: xx-small'>(2004-2010)</span>
+	{% endif %}
+	</a></td></tr>
+</table>
+</td>
+<td>
+<table style='border-style: none; text-align: center;'>
+	<tr><td><a href='http://www.cs.technion.ac.il/people/z--even/'>
+	{% if hebrew %}
+		שמעון אבן <span style='font-size: xx-small'>(2003-2004)</span>
+	{% else %}
+		Shimon Even <span style='font-size: xx-small'>(2003-2004)</span>
+	{% endif %}
+	</a></td></tr>
+</table>
+</td>
+<td>
+<table style='border-style: none; text-align: center;'>
+	<tr><td><a href='http://www.cs.tau.ac.il/~amiramy/'>
+	{% if hebrew %}
+		עמירם יהודאי <span style='font-size: xx-small'>(2000-2003)</span>
+	{% else %}
+		Amiram Yehudai <span style='font-size: xx-small'>(2000-2003)</span>
+	{% endif %}
+	</a></td></tr>
+</table>
+</td>
+<td>
+<table style='border-style: none; text-align: center;'>
+	<tr><td><a href='https://www.tau.ac.il/profile/tarsi'>
+	{% if hebrew %}
+		מיכאל טרסי <span style='font-size: xx-small'>(1995-1999)</span>
+	{% else %}
+		Michael Tarsi <span style='font-size: xx-small'>(1995-1999)</span>
+	{% endif %}
+	</a></td></tr>
+</table>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td>
+{% if hebrew %}
+	{% assign t = 'events_he.html'%}
+{% else %}
+	{% assign t = 'events_en.html'%}
+{% endif %}
+   <a href='{{t}}'>
+   <table>
+   <colgroup>
+	<col style="width: 75%" />
+	<col style="width: 25%" />
+   </colgroup>
+   <tr>
+   <td><img style="width: 100%;" src='social.png'/></td>
+    <td style=" vertical-align: middle; text-align: center; font-size: 200%; font-weight: bold;">  
+ {% if hebrew %}
+	ארועים
+   {% else %}
+    Events 
+   {% endif %}
+   </td>
+   </tr>
+   </table>
+   </a>
+</td>
+</tr>
+</table>

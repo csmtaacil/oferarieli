@@ -1,0 +1,97 @@
+\documentclass{article}
+\title{Site Files}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[hebrew,english]{babel}
+\usepackage{hebfont}
+
+\begin{document}
+\maketitle
+In order to appear in the site you need to prepare several files.
+One is mandatory, the others are optional (but highly recommended).
+\begin{enumerate}
+\item
+	{\bf me.md}. 
+	This is a YAML file (UTF-8 without bot).
+	 There is no need to know what YAML is, as per the following example.
+	CS staff must send the correct format.
+	Due to the inherent limitations of some of the MATH staff idiotic formats (e.g., doc, pdf) are accepted
+	by the current webmaster.
+	\begin{tt}
+
+---
+
+\textvisiblespace \textvisiblespace \textvisiblespace staffType: faculty
+
+\textvisiblespace \textvisiblespace \textvisiblespace firstName: First name
+
+\textvisiblespace \textvisiblespace \textvisiblespace lastName: Family name
+
+\textvisiblespace \textvisiblespace \textvisiblespace firstName\_he: \R{
+שם פרטי
+}
+
+\textvisiblespace \textvisiblespace \textvisiblespace lastName\_he: \R{
+שם משפחה
+}
+
+\textvisiblespace \textvisiblespace \textvisiblespace researchTopics: Topic1, Topic2, ...
+
+\textvisiblespace \textvisiblespace \textvisiblespace teachingTopics: Topics1, Topics, ...
+
+\textvisiblespace \textvisiblespace \textvisiblespace researchTopics\_he: \R{
+נושא1, נושא2, ...
+}
+
+\textvisiblespace \textvisiblespace \textvisiblespace teachingTopics\_he:\R{
+ נושא1, נושא2, ...
+}
+
+\textvisiblespace \textvisiblespace \textvisiblespace room: xxx
+
+\textvisiblespace \textvisiblespace \textvisiblespace email: ...
+
+\textvisiblespace \textvisiblespace \textvisiblespace personalSite: https://www.dns.somewhere/\textasciitilde mepage
+
+\textvisiblespace \textvisiblespace \textvisiblespace oldPersonalSite: https://www.dns.somewhere/\textasciitilde mepage
+
+\textvisiblespace \textvisiblespace \textvisiblespace born: "19??-??-??"
+
+\textvisiblespace \textvisiblespace \textvisiblespace rank: 4
+
+\textvisiblespace \textvisiblespace \textvisiblespace formerDean: false
+
+\textvisiblespace \textvisiblespace \textvisiblespace emeritus: false
+
+\textvisiblespace \textvisiblespace \textvisiblespace passedAway: "20??-??-??"
+
+---
+
+	\end{tt}
+Files without the first nine fields will be ignored by the webmaster.
+There are reasonable defaults for the other fields.
+Still it is recommended to fill in everything.
+You will be forgiven if the {\tt passAway} field remains empty or is completely dropped.
+Anyways it is reasonable to expect the next death will be of the webmaster.
+(Any volunteers for this thanksless position?)
+
+\item
+	{\bf me.png} or {\bf me.jpg}. Head photo. 
+	If you have some other format (why?) it might be possible to handle it as well.
+
+\item
+  {\bf \textunderscore me.bib}.
+	This is your publications list file.
+	It stands to reason that anyone here uses {\LaTeX}  hence knows what a {\bf bibtex/biblatex} files are.
+   The parser used to read the bib seems to be doing a reasonable job.
+	However, it is a work in eternal progress, hence if there are problems (or missing features),
+		please inform the webmaster.
+
+\item
+	{\bf meGloria.html/meGloria.md}.
+		This is your self page if so you wish.
+	It can be either an html file or a markdown file.
+	You can send several files with links, subdirectories, etc., in a .zip file if you want a glorified
+	self page.
+\end{enumerate}
+\end{document}

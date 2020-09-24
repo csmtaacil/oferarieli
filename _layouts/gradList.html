@@ -1,0 +1,184 @@
+{% include school_top.html %}
+		<script>
+		window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+		</script>
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+{% assign dbName = page.dir | append: 'grad.html' %}
+{% assign db = site.pages | where: 'url', dbName | first %}
+{% assign gradList = db.listPublications %}
+{% assign gradList = gradList | where: 'pubType', 'masterthesis'%}
+{% assign antiCounter = gradList | size %}
+{% if antiCounter == 0 %}
+	{% continue %}
+{% endif %}
+
+{% if hebrew %}
+<h2>תזות <span dir="auto">M.Sc.</span></h2>
+{% else %}
+<h2>M.Sc. theses</h2>
+{% endif %}
+
+<h2 style='margin-top:20px; margin-bottom:20px'>{{heading}}</h2>
+
+
+	{% if hebrew %}
+	<table style="direction: rtl;">
+	<thead>
+	<tr>
+	<th></th>
+	<th>שם</th>
+	<th>שם תיזה</th>
+	<th>מנחה</th>
+	<th>תאריך </th>
+	<th>פירסום נגזר</th>
+	</tr>
+	</thead>
+	{% else %}
+	<table style="direction: ltr;">
+	<thead>
+	<tr>
+	<th></th>
+	<th>Name</th>
+	<th>Thesis Title</th>
+	<th>Advisor</th>
+	<th>Date</th>
+	<th>Derived Publication</th>
+	</tr>
+	</thead>
+	{% endif %}
+{% for s in gradList %}
+	{% assign dddd = s.pubDate %}
+	{% if dddd == '9999' %}
+		{% assign dddd = '' %}
+	{% endif %}
+	{% assign l = dddd | size %}
+	{% assign ddNice = '' %}
+	{% if l == 4  or l == 8 %} <!-- this 8 thing is due to github. beats me -->
+		{% assign ddNice = dddd | append: '-01-01' | date: '%Y' %}
+	{% elsif l == 7 %}
+		{% assign ddNice =  dddd | append: '-01' | date: '%B %Y' %}
+	{% elsif l == 10 %}
+		{% assign ddNice = dddd | append: '-01' | date: '%B %-d, %Y' %}
+	{% endif %}
+		
+	{% assign sYear = dddd | slice: 0,4 %}
+		{% if hebrew %}
+			<tr dir='rtl' style='text-align: right' >
+		{% else %}
+			<tr dir='ltr' style='text-align: left' >
+		{% endif%}
+		<td>{{ antiCounter }}</td>
+	{% assign antiCounter = antiCounter | minus: 1 %}
+
+	{% if hebrew %}
+		{% assign dir = 1 %}
+		{% assign author = s.author_he %}
+		{% if author == ""  or author == nil %}
+			{% assign dir = 0 %}
+			{% assign author = s.author %}
+		{% endif %}
+	{% else %}
+		{% assign dir = 0 %}
+		{% assign author = s.author %}
+		{% if author == ""  or author == nil %}
+			{% assign dir = 1 %}
+			{% assign author = s.author_he %}
+		{% endif %}
+	{% endif %}
+	
+
+	{% if dir == 0 %}
+		<td style="direction: ltr; text-align: left;">
+	{% else %}
+		<td style="direction: rtl; text-align: right;">
+	{% endif %}
+	{{author}}
+	</td>
+		
+	{% if hebrew %}
+		{% assign dir = 1 %}
+		{% assign title = s.title_he %}
+		{% if title == ""  or title == nil %}
+			{% assign dir = 0 %}	
+			{% assign title = s.title %}
+		{% endif %}
+	{% else %}
+		{% assign dir = 0 %}
+		{% assign title = s.title %}
+		{% if title == "" or title == nil %}
+			{% assign dir = 1 %}
+					{% assign title = s.title_he %}
+		{% endif %}
+	{% endif %}	
+	
+	{% if dir == 0 %}
+		<td style="direction: ltr; text-align: left;">
+	{% else %}
+		<td style="direction: rtl; text-align: right;">
+	{% endif %}
+	{% if s.url %}
+	<a href="db/{{s.url}}">
+	{% endif %}
+	<span style='font-style: italic'>
+	{{title}}
+	</span>
+	{% if s.url %}
+	<a href="{{s.url}}">	
+	{% endif %}
+	</td>
+	
+	{% assign tt = "" %}
+	
+	{% if hebrew %}
+		{% assign dir = 1 %}
+		{% assign advisor = s.editor_he %}
+		{% if advisor == ""  or advisor == nil %}
+			{% assign dir = 0 %}	
+			{% assign advisor = s.editor %}
+		{% endif %}
+	{% else %}
+		{% assign dir = 0 %}
+		{% assign advisor = s.editor %}
+		{% if advisor == "" or advisor == nil %}
+			{% assign dir = 1 %}
+			{% assign advisor = s.editor_he %}
+		{% endif %}
+	{% endif %}	
+
+	{% if dir == 0 %}
+		<td style="direction: ltr; text-align: left;">
+	{% else %}
+		<td style="direction: rtl; text-align: right;">
+	{% endif %}		
+		{{advisor}}
+	</td>
+	
+	<td style="direction: ltr; text-align: left;">
+	{{ddNice}}
+	</td>
+	
+	<td style="direction: ltr; text-align: left;">
+	{% if s.journal %}
+	{% if s.doi %}
+		<a href="https://doi.org/{{s.doi}}">
+	{% endif %}
+	{{s.journal}}
+	{% if s.doi %}
+		</a>
+	{% endif %}
+	{% endif %}
+	</td>
+	
+	</tr>
+		
+{% endfor %}
+
+	</table>
+
+{% include school_bottom.html %}

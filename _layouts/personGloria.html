@@ -1,0 +1,18 @@
+{% include person_top.html %}
+
+{% assign hebrew = false %}
+{% if page.url contains '_he' %}
+	{% assign hebrew = true %}
+{% endif %}
+
+{% assign t = page.dir | append: 'self/meGloria.html' %}
+{%  assign exists = site.pages | where: 'url', t | first %}
+{% unless exists %}
+	{%  assign exists = site.static_files | where: 'path', t | first %}
+{% endunless %}
+
+{% if exists %}
+	{% include_relative self/meGloria.html %}
+{% endif %}
+
+{% include person_bottom.html %}

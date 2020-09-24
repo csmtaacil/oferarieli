@@ -1,0 +1,587 @@
+{% include person_top.html %}
+		<script>
+		window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+		</script>
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+{% assign formal = false %}
+{% assign tableaux = false %}
+{% assign yearly = false %}
+{% assign lin = false %}
+
+{% if page.name contains '_frml_' %}
+	{% assign formal = true %}
+{% endif %}
+{% if page.name contains '_tbl' %}
+	{% assign tableaux = true %}
+{% endif %}
+{% if page.name contains '_year_' %}
+	{% assign yearly = true %}
+{% endif %}
+{% if page.name contains '_lin_' %}
+	{% assign lin = true %}
+{% endif %}
+
+{% assign hebrew = false %}
+{% if page.url contains '_he' %}
+	{% assign hebrew = true %}
+{% endif %}
+
+
+{% if hebrew %}
+	<h2 style='margin-top:30px; margin-bottom:20px'>
+		<span style='font-size: small'>
+			הצגה:
+			{% if page.url contains '_frml_' %}
+				רשמית,
+			{% else %}
+				{% assign t = page.name | replace: 'tbl', 'frml' | replace: 'year', 'frml' | replace: 'lin', 'frml'%}
+				<a class='menu' href={{t}}>רשמית,</a>
+			{% endif %}
+			{% if page.url contains '_tbl_' %}
+				טבלאית,
+			{% else %}
+				{% assign t = page.name | replace: 'frml', 'tbl' | replace: 'year', 'tbl' | replace: 'lin', 'tbl'%}
+				<a class='menu' href={{t}}>טבלאית,</a>
+			{% endif %}
+			{% if page.url contains '_year_' %}
+				שנתית.
+			{% else %}
+				{% assign t = page.name | replace: 'tbl', 'year' | replace: 'frml', 'year' | replace: 'lin', 'year'%}
+				<a class='menu' href={{t}}>שנתית.</a>
+			{% endif %}
+			{% if page.url contains '_lin_' %}
+				לנארית.
+			{% else %}
+				{% assign t = page.name | replace: 'tbl', 'lin' | replace: 'frml', 'lin' | replace: 'year', 'lin'%}
+				<a class='menu' href={{t}}>לינארית.</a>
+			{% endif %}
+		</span>
+	</h2>
+{% else %}
+	<h2 style='margin-top: 30px; margin-bottom:20px'>
+		<span style='font-size: small'>
+			view:
+			
+			{% if page.url contains '_frml_' %}
+				Formal,
+			{% else %}
+				{% assign t = page.name | replace: 'tbl', 'frml' | replace: 'year', 'frml' | replace: 'lin', 'frml' %}
+				<a class='menu' href={{t}}>Formal,</a>
+			{% endif %}
+			
+			{% if page.url contains '_tbl_' %}
+				table,
+			{% else %}
+				{% assign t = page.name | replace: 'frml', 'tbl' | replace: 'year', 'tbl' | replace: 'lin', 'tbl' %}
+				<a class='menu' href={{t}}>table,</a>
+			{% endif %}
+			
+			{% if page.url contains '_year_' %}
+				yearly.
+			{% else %}
+				{% assign t = page.name | replace: 'tbl', 'year' | replace: 'frml', 'year' | replace: 'lin', 'year'%}
+				<a class='menu' href={{t}}>yearly.</a>
+			{% endif %}
+
+			{% if page.url contains '_lin_' %}
+				linear.
+			{% else %}
+				{% assign t = page.name | replace: 'tbl', 'lin' | replace: 'frml', 'lin' | replace: 'year', 'lin'%}
+				<a class='menu' href={{t}}>linear.</a>
+			{% endif %}
+
+		</span>
+	</h2>
+{% endif %}
+
+
+{% assign publicationsDir = db.dir | append: 'publications/' %}
+{% assign publicationFiles = site.pages | where: 'dir', publicationsDir %}
+
+{% assign firstPar = 0 %}
+{% assign lastPar = 5  %}
+{% if yearly  or lin %}
+	{% assign firstPar = -1 %}
+	{% assign lastPar = -1  %}
+{% endif %}
+{% for i in (firstPar..lastPar) %}
+	{% assign type = "" %}
+	{% assign type2 = "" %}
+	{% if i == 0 %}
+		{% assign type = 'book' %}
+	{% elsif i == 1 %}
+		{% assign type = 'incollection' %}
+		{% assign type2 = 'inbook' %}
+	{% elsif i == 2 %}
+		{% assign type = 'unpublished' %}
+	{% elsif i == 3 %}
+		{% assign type = 'article' %}
+	{% elsif i == 4 %}
+		{% assign type = 'inproceedings' %}
+	{% else %}
+		{% assign type = 'other' %}
+	{% endif %}
+
+
+	{% for s in publicationFiles %}
+	{% if s.listPublications %}
+		{% if i == -1 %}
+			{% if s.smartGenerated %} 
+				{% assign tt = s.listPublications %}
+			{% else %}
+				{% assign tt = s.listPublications | sort: 'pubDate' | reverse %}
+			{% endif %}
+		{% else %}
+			{% if s.smartGenerated %} 
+				{% assign tt = s.listPublications | where: 'pubType', type %}
+				{% comment %}
+				{% assign tt = s.listPublications | where_exp: "item", "item.pubType == type or item.pubType == type2" %}
+				{% endcomment %}
+			{% else %}
+				{% assign tt = s.listPublications | where: 'pubType', type | sort: 'pubDate' | reverse %}
+			{% endif %}
+		{% endif %}
+		
+		{% assign publications = tt %}
+		{% assign dbs = s %}
+
+		{% break %}
+	{% endif %}
+	{% endfor %}
+
+{% if i == -1 %}
+	{% if hebrew %}
+		{% assign heading = 'פרסומים' %}
+		{% if dbs.allpublications_he %}
+			{% assign heading = dbs.allpublications_he %}
+		{% endif %}
+	{% else %}
+		{% assign heading = 'Publications'%}
+		{% if dbs.allpublications %}
+			{% assign heading = dbs.allpublications %}
+		{% endif %}
+	{% endif %}
+{% elsif i == 0 %}
+	{% if hebrew %}
+		{% assign heading = 'ספרים' %}
+		{% if dbs.secbook_he %}
+			{% assign heading = dbs.secbook_he %}
+		{% endif %}
+	{% else %}
+		{% assign heading = 'Books'%}
+		{% if dbs.secbook %}
+			{% assign heading = dbs.secbook %}
+		{% endif %}
+	{% endif %}
+{% elsif i == 1 %}
+	{% if hebrew %}
+		{% assign heading = 'פרק בספר' %}
+		{% if dbs.secincollection_he %}
+			{% assign heading = dbs.secincollection_he %}
+		{% endif %}		
+	{% else %}
+		{% assign heading = 'Book Chapter'%}
+		{% if dbs.secincollection %}
+	 		{% assign heading = dbs.secincollection %}
+		{% endif %}		
+	{% endif %}
+{% elsif i == 2 %}
+   {% assign type = 'notpublished' %}
+	{% if hebrew %}
+		{% assign heading = 'פרסומימ אחרים' %}
+		{% if dbs.secnotpublished_he %}
+			{% assign heading = dbs.secnotpublished_he %}
+		{% endif %}		
+	{% else %}
+		{% assign heading = 'Other Publications'%}
+		{% if dbs.secnotpublished %}
+			{% assign heading = dbs.secnotpublished %}
+		{% endif %}		
+	{% endif %}		
+{% elsif i == 3 %}
+   {% assign type = 'article' %}
+	{% if hebrew %}
+		{% assign heading = 'מאמרים נבחרים' %}
+		{% if dbs.secarticle_he %}
+			{% assign heading = dbs.secarticle_he %}
+		{% endif %}		
+	{% else %}
+		{% assign heading = 'Selected Journal Publications'%}
+		{% if dbs.secarticle %}
+			{% assign heading = dbs.secarticle %}
+		{% endif %}		
+	{% endif %}
+{% elsif i == 4 %}
+	{% assign type = 'inproceedings' %}
+	{% if hebrew %}
+		{% assign heading =  'מאמרים בכנסים' %}
+		{% if dbs.secinproceedings_he %}
+			{% assign heading = dbs.secinproceedings_he %}
+		{% endif %}			
+	{% else %}
+		{% assign heading = 'Conference Proceedings' %}
+		{% if dbs.secinproceedings %}
+			{% assign heading = dbs.secinproceedings %}
+		{% endif %}			
+	{% endif %}
+{% else %}
+	{% assign type = 'other' %}
+	{% if hebrew %}
+		{% assign heading =  'פירסומים אחרים' %}
+		{% if dbs.secother_he %}
+			{% assign heading = dbs.secother_he %}
+		{% endif %}			
+	{% else %}
+		{% assign heading = 'Other Publications' %}
+		{% if dbs.secother %}
+			{% assign heading = dbs.secother %}
+		{% endif %}			
+	{% endif %}
+{% endif %}
+
+
+{% if yearly %}
+	{% assign oldYear = '0000' %}
+	{% for s in publications %}
+		{% assign sYear = s.pubDate | slice: 0,4 %}
+			{% if yearly and oldYear != sYear %}
+				{% unless sYear == '9999' %}
+					<a class='menu' href='#year{{i}}{{sYear}}'>{{sYear}}</a>
+				{% endunless %}
+			{% assign oldYear = sYear %}
+		{% endif %}
+	{% endfor %}
+{% endif %}
+
+{% assign antiCounter = publications | size %}
+{% if antiCounter == 0 %}
+	{% continue %}
+{% endif %}
+
+<hr>
+
+<h2 style='margin-top:20px; margin-bottom:20px'>{{heading}}</h2>
+
+{% if tableaux %}
+	<table>
+{% else %}
+	<ol  reversed start='{{antiCounter}}'>
+{% endif %}
+
+{% assign jaxxed = false %}
+{% assign oldYear = '0000' %}
+{% for s in publications %}
+	
+	{% assign dddd = s.pubDate %}
+	{% if dddd == '9999' %}
+		{% assign dddd = '' %}
+	{% endif %}
+	{% assign l = dddd | size %}
+	{% assign ddNice = '' %}
+	{% if l == 4  or l == 8 %} <!-- this 8 thing is due to github. beats me -->
+		{% assign ddNice = dddd | append: '-01-01' | date: '%Y' %}
+	{% elsif l == 7 %}
+		{% assign ddNice =  dddd | append: '-01' | date: '%B %Y' %}
+	{% elsif l == 10 %}
+		{% assign ddNice = dddd | append: '-01' | date: '%B %-d, %Y' %}
+	{% endif %}
+		
+	{% assign sYear = dddd | slice: 0,4 %}
+	{% if yearly and oldYear != sYear %}
+		</ol>
+		<span id='year{{i}}{{sYear}}'>{{sYear}}</span>
+		{% assign oldYear = sYear %}
+		<ol reversed start='{{antiCounter}}'>
+	{% endif %}
+	{% if tableaux %}
+		{% if hebrew and s.title_he  %}
+			<tr dir='rtl' style='text-align: right' >
+		{% else %}
+			<tr dir='ltr' style='text-align: left' >
+		{% endif%}
+		<td>{{ antiCounter }}</td>
+	{% else %}
+		{% if hebrew and s.title_he  %}
+			<li> <div dir='rtl' style='text-align: right'>
+		{% else %}
+			<li> <div dir='ltr' style='text-align: left'>
+		{% endif%}
+	{% endif %}
+	{% assign antiCounter = antiCounter | minus: 1 %}
+
+	{% if tableaux %}
+		<td>
+	{% endif %}
+	
+	{% assign entryHebrew = false %}
+	{% assign realAuthor = s.author %}
+	{% assign realEditor = s.editor %}
+	{% unless realAuthor %}
+		{% if realEditor %}
+			{% assign realAuthor = realEditor | append: " (eds.)" %}
+			{% assign realEditor = null %}
+		{% endif %}
+	{% endunless %}
+
+	{% assign realAuthor_he = s.author_he %}
+	{% assign realEditor_he = s.editor_he %}
+	{% unless realAuthor_he %}
+		{% if realEditor_he %}
+			{% assign realAuthor_he = realEditor_he | append: " (עורכים)" %}
+			{% assign realEditor_he = null %}
+		{% endif %}
+	{% endunless %}
+
+	
+	{% if hebrew and realAuthor_he %}
+		{% assign entryHebrew = true %}
+		{% assign t = realAuthor_he %}
+		{% unless tableaux %}
+			{% assign t = t | append: "," %}
+		{% endunless %}
+		{{t}}
+	{% elsif realAuthor %}
+		{% assign t = realAuthor %}
+		{% unless tableaux %}
+			{% assign t = t | append: "," %}
+		{% endunless %}
+		{{t}}
+	{% endif %}
+
+	{% if hebrew and s.title_he  and s.with_he %}
+			(עם {{ s.with_he }})
+	{% elsif hebrew and s.title_he  and s.with_he == false %}
+			(עם {{ s.with }})
+	{% elsif s.with %}
+			(with {{ s.with }})
+	{% endif %}
+	
+	{% if tableaux %}
+		</td>
+	{% endif %}
+
+	{% assign usedOfficial = false %}
+	{% assign usedArxiv = false %}
+	{% assign usedLocal = false %}
+	{% assign usedDoi = true %}
+	
+	{% assign t = '' %}
+	{% assign tt = '' %}
+	{% if s.doi %}
+		{% assign t = "https://doi.org/" | append: s.doi %}
+		{% assign used = true %}
+	{% elsif s.url %}
+		{% assign t = s.url %}
+		{% assign used = true %}
+	{% elsif s.urlOfficial %}
+		{% assign t = s.urlOfficial %}
+		{% assign usedOfficial = true %}
+	{% elsif s.urlAuto %}
+		{% assign t = s.dir | append: s.title | append: '.pdf' %}
+		{% assign usedLocal = true %}
+	{% elsif s.urlLocal %}
+		{% assign t = s.dir | append: s.urlLocal %}
+		{% assign usedLocal = true %}
+	{% endif %}
+	
+	{% if tableaux %}
+		<td>
+	{% endif %}
+	
+	<span style='font-style: italic'>
+	{% assign title = s.title %}
+	{% if hebrew and s.title_he %} 
+		{% assign title = s.title_he %}
+	{% endif %}
+	
+	{% if t != '' %}
+		{% assign tt = '<a href="' | append: t | append: '">'  | append: title %}
+	{% else %}
+		{% assign tt = title %}
+	{% endif %}
+	{% if t != '' %}
+		{% assign tt = tt | append: '</a>' %}
+	{% endif %}
+
+	{% unless tableaux %}
+		{% assign tt = tt | append: '.' %}
+	{% endunless %}
+	{{tt}}
+	</span>
+	
+	{% if tableaux %}
+	</td>
+	<td>
+	{% endif %}
+	
+	{% assign tt = "" %}
+	
+	{% if s.booktitle or realEditor %}
+		{% if tt != '' %}
+			{% assign tt = tt | append: ', ' %}
+		{% endif %}
+	
+		{% assign tt = tt | append: 'In ' %}
+
+		{% if realEditor %}
+			{% assign tt = tt | append: realEditor | append: " (eds.)" %}
+		{% endif %}
+
+		{% if s.booktitle %}
+			{% if realEditor %}
+				{% assign tt = tt | append: ', ' %}
+			{% endif %}
+			{% assign tt = tt | append: s.booktitle %}
+		{% endif %}
+	{% endif %}
+	
+	{% if hebrew and s.journal_he %}
+		{% if tt != '' %}
+			{% assign tt = tt | append: ', ' %}
+		{% endif %}
+		{% assign tt = tt | append: s.journal_he %}
+	{% elsif s.journal %}
+		{% if tt != '' %}
+			{% assign tt = tt | append: ', ' %}
+		{% endif %}
+		{% assign tt = tt | append: s.journal %}
+	{% endif %}
+
+	
+	{% if tableaux %}
+		{{tt}}
+		</td>
+	{% endif %}
+	
+	{% unless tableaux %}
+	{% assign line = tt %}
+	{% if used  and  dbs.alldetails != "1" %}
+		{% if ddNice != "" %}
+			{% if line != "" %}
+				{% assign line = line | append: ', ' %}
+			{% endif %}
+			{% assign line = line | append: ddNice %}
+			{% if line != "" %}
+				{% assign line = line | append: '.' %}
+			{% endif %}
+			{{line}}
+		{% endif %}
+	{% else %}
+		{% if s.series %}
+			{% if line != "" %}
+				{% assign line = line | append: ', ' %}
+			{% endif %}
+			{% assign line = line | append: s.series %}
+		{% endif %}
+		{% if s.volume %}	
+			{% if line != "" %}
+				{% assign line = line | append: ', ' %}
+			{% endif %}
+			{% if entryHebrew %}
+				{% assign line = line | append: 'גליון '  | append: s.volume %}
+			{% else %}
+				{% assign line = line | append: 'volume '  | append: s.volume %}
+			{% endif %}
+		{% endif %}
+		{% if s.issue %}
+			{% if line != "" %}
+				{% assign line = line | append: ', ' %}
+			{% endif %}
+			{% assign line = line | append: 'issue '  | append: s.issue %}
+		{% endif %}
+		{% if s.number %}
+			{% if line != "" %}
+				{% assign line = line | append: ', ' %}
+			{% endif %}
+			{% assign line = line | append: 'number '  | append: s.number %}
+		{% endif %}
+		{% if s.pages %}
+			{% if line != "" %}
+				{% assign line = line | append: ', ' %}
+			{% endif %}
+			{% assign line = line | append: 'pages '  | append: s.pages %}
+		{% endif %}
+		{% if s.pageFirst %}
+			{% if line != "" %}
+				{% assign line = line | append: ', ' %}
+			{% endif %}
+			{% assign line = line | append: 'pages '  | append: s.pageFirst 
+						| append: '-'  |  append: s.pageLast %}
+		{% endif %}
+		{% if s.publisher %}
+			{% if line != "" %}
+				{% assign line = line | append: ', ' %}
+			{% endif %}
+			{% assign line = line | append: s.publisher %}
+		{% endif %}
+		{% if ddNice != '' %}
+			{% if line != "" %}
+				{% assign line = line | append: ', ' %}
+			{% endif %}
+			{% assign line = line | append: ddNice %}
+		{% endif %}
+		{% if line != "" %}
+			{% assign line = line | append: "." %}
+		{% endif %}
+		{{ line }}
+		{% endif %}
+	{% endunless %}
+
+	{% if tableaux %}
+	<td>
+	{% endif %}
+
+	{% if tableaux %}
+		{% if ddNice != '' %}
+			{{ddNice}}
+		{% endif %}
+	{% endif %}
+	
+	{% if hebrew and s.comment_he %}
+		{{s.comment_he}}
+	{% elsif s.comment %}
+		{{s.comment}}
+	{% endif %}
+	
+	{% if hebrew and s.note_he %}
+		{{s.note_he}}.
+	{% else %}
+		{% if s.note %}
+			{{s.note}}.
+		{% endif %}
+	{% endif %}
+		
+	{% if  s.arxiv %}
+		{% assign t = 'https://arxiv.org/abs/' | append: s.arxiv %}
+			<a href='{{t}}'><span style='font-size: x-small'>arXiv</span></a>
+	{% endif %}
+	{% if s.local %}
+		{% assign t = page.dir | append: 'publications/' | append: s.local %}
+				<a href='{{t}}'><span style='font-size: x-small'>local</span> </a>
+	{% endif %}
+		
+	{% if tableaux %}
+		</td>
+		</tr>
+	{% else %}
+		</div></li>
+	{% endif %}
+		
+{% endfor %}
+
+{% if tableaux %}
+	</table>
+{% else %}
+</ol>
+{% endif %}
+
+{% endfor %}
+
+{% include person_bottom.html %}

@@ -1,0 +1,10 @@
+{% include course_top.html %}
+
+{% assign hebrew = false %}
+{% if page.url contains '_he' %}
+	{% assign hebrew = true %}
+{% endif %}
+
+{{ content }}
+
+{% include course_bottom.html %}

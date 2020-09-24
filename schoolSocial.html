@@ -1,0 +1,39 @@
+{% assign hebrew = false %}
+{% if page.url contains '_he' %}
+	{% assign hebrew = true %}
+{% endif %}
+
+{% assign socialDir = page.dir | append: 'social/' %}
+{% assign socialEvents = site.pages | where: 'dir', socialDir |
+					sort: 'socialDate' | reverse %}
+{% assign socialEvents = site.pages | where: 'name', 'event.md'  | 
+			sort: 'socialDate' | reverse %}
+
+<ul class='socialEvents'>
+{% for s in socialEvents %}
+	<li>
+	{% unless s.dropDate  %}
+		<span style='font-weight: bold;'>
+		{{ s.socialDate }}: 
+		</span>	
+	{% endunless %}
+	{% if hebrew %}
+		{{s.freeText_he}}
+	{% else %}
+		{{s.freeText_en}}
+	{% endif %}
+	
+	{% assign photosDir = s.dir | append: 'photos'%}
+	{% assign photos = site.static_files %}
+	<div style='display:flex; flex-wrap: wrap; align-items: baseline; justify-content: center;'>
+	{% for sp in photos %}
+		{% if sp.path contains photosDir %}
+			<figure>
+			<img style="width: 14Em" src='{{sp.path}}'/>
+			</figure>
+		{% endif %}
+	{% endfor %}
+	</div>
+	</li>
+{% endfor %}
+</ul>

@@ -1,0 +1,162 @@
+{% include person_top.html %}
+
+{% assign hebrew = false %}
+{% if page.url contains '_he' %}
+	{% assign hebrew = true %}
+{% endif %}
+
+{% for teachLoop in (0..1) %}
+	{% if teachLoop == 0 %}
+		{% assign teachType = nil %}
+	{% else %}
+		{% assign teachType = 'thesisMSC' %}
+	{% endif %}
+
+	{% assign teachingDir = db.dir | append: 'teaching/' %}
+	{% assign teachingFiles = site.pages | where: 'dir', teachingDir %}
+	{% assign teachings = '' | split: ',' %}
+	{% for s in teachingFiles %}
+		{% if s.listCourses %}
+			{% for c in s.listCourses %}
+				{% if c.teachType != teachType %}
+					{% continue %}
+				{% endif %}
+				{% assign td = c.teachDate | split: "," %}
+				{% for y in td %}
+					{% assign yy = y | split: '-' %}
+					{% assign first = yy[0] | strip %}
+					{% assign last = yy[0] | strip %}
+					{% if yy[1] %}
+						{% assign last = yy[1]| strip %}
+					{% endif %}
+					{% for l in (first..last) %}
+						{% capture vec %}
+							{{l}}+ {{c.title}}+ {{c.title_he}}
+						{% endcapture %}
+						{% assign vec = vec | split: '+' %}
+						{% assign vecs = '' | split: '+' %}
+						{% for v in vec %}
+							{% assign tv = v | strip %}
+							{% assign vecs = vecs | push: tv %}
+						{% endfor %}
+						{% assign vecss = vecs | join: '+'%}
+						{% assign teachings = teachings | push: vecss %}
+					{% endfor %}
+				{% endfor %}
+			{% endfor %}
+		{% else %}
+			{% if s.teachType != teachType %}
+				{% continue %}
+			{% endif %}
+			{% capture vecs %}{{s.teachDate}}+{{s.title}}+{{s.title_he}}+{{s.courseSite}}{%endcapture%}
+			{% assign teachings = teachings | push: vecs %}
+		{% endif %}
+	{% endfor %}
+
+	{% assign teachings = teachings | sort | reverse %}
+
+	{% assign group = teachings | group_by: 'teachDate' %}
+	{% assign group = group | sort: 'name' | reverse %}
+	{% assign ts = teachings | size %}
+	{% if ts == 0 %}
+		{% continue %}
+	{% endif %}
+		{% if hebrew %}
+			{% if teachLoop == 0 %}
+				<h2>הוראה</h2>
+			{% else %}
+				<h2>הנחיה</h2>
+			{% endif %}
+		{% else %}
+			{% if teachLoop == 0 %}
+				<h2>Teaching</h2>
+			{% else %}
+				<h2>Advising</h2>
+			{% endif %}
+		{% endif %}
+	<ol reversed>
+	
+{% assign jaxxed = false %}
+{% assign prevDate = '' %}
+{% assign prevDate = ''%}
+{% for s in teachings %}
+	{% assign vec = s | split: '+' %}
+	{% assign teachDate = vec[0]%}
+	{% assign title = vec[1]%}
+	{% assign title_he = vec[2]%}
+	{% assign courseSite = vec[3]%}
+	{% assign year = teachDate | slice: 0, 4 %}
+	{% assign semester = teachDate | slice: 6, 1%}
+	{% assign prevYear = prevDate | slice: 0, 4 %}
+	{% assign prevSemester = prevDate | slice: 6, 1%}
+	{% if year == prevYear %}
+		{% assign ys = '' %}
+		{% if semester == prevSemester %}
+			{% assign ss = ''%}
+		{% else %}
+			{% assign ss = semester %}
+		{% endif %}
+	{% else %}
+		{% assign ys = year %}
+		{% assign ss = semester %}
+	{% endif %}
+	{% if hebrew %}
+		{% case ss %}
+		{%when 'A'%}
+			{%assign ss = 'א'%}
+		{%when 'B'%}
+			{%assign ss = 'ב'%}
+		{%when 'S'%}
+			{%assign ss = 'קיץ'%}
+		{%endcase%}
+	{% endif %}
+	{% if ys != '' %}
+		{% if prevDate != '' %}		
+			</table></li>
+		{% endif %}
+		<li><table>
+	{% endif %}
+	{% assign prevDate = teachDate %}
+	<tr><td class='teachingCol1'>{{ys}}</td><td class='teachingCol2'>{{ss}}</td>
+	{% if hebrew %}
+		<td style='text-align: right'>
+	{% else %}
+		<td style='text-align: left'>
+	{% endif %}
+	{% assign t = courseSite %}
+	{% if henrew %}
+		{% assign t = t | replace: '.html', '_he.html'%}
+	{% else %}
+		{% assign t = t | replace: '.html', '_en.html'%}
+	{% endif %}
+
+	{% if courseSite %}
+		<a href='{{t}}'>
+	{% endif %}
+	{% if hebrew %}
+		{{title_he}}
+	{% else %}
+		{{title}}
+	{% endif %}
+	{% if s.url %}
+		</a>
+	{% endif %}
+	{% if s.slides %}
+	,
+		<a href=' teaching/{{ s.slides }} '>
+		{% if hebrew%}
+			שקפים
+		{% else %}
+			slides
+		{% endif %}
+		</a>.
+	{% endif %}
+	</td></tr>
+	{% assign prevDate = teachDate %}
+{% endfor %}
+</tr>
+</table>
+</ol>
+{% endfor %}
+
+{% include person_bottom.html %}

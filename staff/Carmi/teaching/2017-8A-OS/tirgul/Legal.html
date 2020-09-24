@@ -1,0 +1,165 @@
+﻿<html>
+<html>
+<head>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
+  MathJax.Hub.Insert(MathJax.InputJax.TeX.Definitions.macros,{
+    cancel: ["Extension","cancel"],
+    bcancel: ["Extension","cancel"],
+    xcancel: ["Extension","cancel"],
+    cancelto: ["Extension","cancel"]
+  });
+});
+</script>
+<script type="text/javascript"   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script src="question.js"></script>
+<script>
+var totalTime = 4;
+					
+var Question;
+var questionNumber = 0;
+
+var sortDown = true;
+
+function sortFunc(a, b) {
+	if (sortDown) {
+		if (a.carmiKey > b.carmiKey)
+			return (-1);
+		if (a.carmiKey < b.carmiKey)
+			return (1);
+		if (a.carmiDisp < b.carmiDisp)
+			return (-1);
+		if (a.carmiDisp > b.carmiDisp)
+			return (1);
+		return (0);
+	} else {
+		if (a.carmiKey < b.carmiKey)
+			return (-1);
+		if (a.carmiKey > b.carmiKey)
+			return (1);
+		if (a.carmiDisp < b.carmiDisp)
+			return (-1);
+		if (a.carmiDisp > b.carmiDisp)
+			return (1);
+		return (0);
+	}
+}
+
+function sortSeq() {
+	sortDown = !sortDown;
+	var q = document.getElementById("TblAns");
+	var r = new Array();
+	var i;
+	for (i = 0; i < q.rows.length; i++)
+		r[i] = q.rows[i];
+	q.innerHTML = "";
+	r = r.sort(sortFunc);
+	for (i = 0; i < r.length; i++)
+		q.appendChild(r[i]);
+	var t = document.getElementById("TriangleSort");
+	if (sortDown) 
+		t.innerHTML = "\\( \\blacktriangledown \\) מספר שאלה";
+	else
+		t.innerHTML = "\\( \\blacktriangle \\) מספר שאלה";
+	MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+}
+
+function nextQuestion() {
+	var q = document.getElementById("TblAns");
+	if (sortDown)
+		var row = q.insertRow(0);
+	else
+		var row = q.insertRow(-1);
+	row.carmiKey = questionNumber;
+	row.carmiDisp = 0;
+	var s = "<td style='vertical-align: top'>";
+	s += questionNumber;
+	s += "</td><td>" + Question.feedback() + "</td><td style='vertical-align: top'>" + Question.period() + "</td>";
+	row.innerHTML = s;
+
+	if (Question.grade() == 100)
+		var ss = "\\(\\checkmark{תשובה}\\)";
+	else
+		var ss = "\\(\\xcancel{תשובה}\\)";
+	var fmt = "";
+	if (Question.grade() == 100)
+		fmt = " style='border-bottom: 1px solid black'";
+
+	if (sortDown)
+		var row = q.insertRow(1);
+	else
+		var row = q.insertRow(-1);
+	row.carmiKey = questionNumber;
+	row.carmiDisp = 1;
+	row.style.border="1px solid black";
+	row.innerHTML="<td " + fmt + ">" +  ss + "</td>" + 
+			"<td " + fmt + ">" + Question.userAnswerHTML() + "</td>" + 
+			"<td " + fmt + ">&nbsp</td>";
+	if (Question.grade() != 100) {
+		if (sortDown)
+			var row = q.insertRow(2);
+		else
+			var row = q.insertRow(-1);
+		row.carmiKey = questionNumber;
+		row.carmiDisp = 2;
+		row.style.border="1px solid black";
+		row.innerHTML="<td style='border-bottom: 1px solid black'>תשובה נכונה</td>" + 
+			"<td style='border-bottom: 1px solid black'>" + Question.goodAnswerHTML() + "</td>" + 
+			"<td style='border-bottom: 1px solid black'>&nbsp</td>";
+	}
+	MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+	q = document.getElementById("Question");
+	Question = chooseQuestion();
+	questionNumber++;
+	q.innerHTML = Question.HTML();
+	MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+}
+
+function init() {
+	var q = document.getElementById("Question");
+	Question = chooseQuestion();
+	questionNumber++;
+	q.innerHTML = Question.HTML();
+	MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+}
+</script>
+</head>
+<body onload="init();" style="direction: rtl">
+<script id="ScriptHere" type-"text/javascript">
+</script>
+<table border>
+	<tr style="horizontal-align: top;">
+	<td>
+		<table id="TblQ" style="margin-left:auto; margin-right:auto;">
+			<tr>
+				<td style="text-align: center" id="Number"></td>
+			</tr>
+			<tr>
+				<td id="Question">
+					<table id="TblInput">
+					</table>
+				</td>
+			</tr>
+		</table>
+	</td>
+	</tr>
+	<tr style="row-height: 50%">
+	<td>
+		<table  style="margin-left:auto; margin-right:auto;">
+		<thead>
+			<tr>
+				<th onclick="sortSeq();" id="TriangleSort">\(\blacktriangledown\) מספר שאלה </th>
+				<th>תרגיל</th>
+				<th onclick="sortTime();">משך זמן</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody id="TblAns">
+		</tbody>
+		</table>
+	</td>
+	</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,8 @@
+---
+layout: personalCourse
+courseName: Introduction to Operating Systems
+courseDate: 2017-8A
+courseTeach: Carmi Merimovich
+courseSite: 2017-8A-OS
+---
+{% include_relative courseSlides.html %}

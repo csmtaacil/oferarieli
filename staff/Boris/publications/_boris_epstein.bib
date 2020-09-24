@@ -1,0 +1,904 @@
+@mtaflags{key,
+	allDetails=1,
+	allPublications = "Publications",
+	allPublications_he = "פרסומים",
+	secArticle={Journal Publications},
+	secArticle_he={פרסומים בעתונות מדעית},
+	secBook = {Books},
+	secBook_he={ספרים},
+	secInCollection={Book Chapters},
+	secInCollection_he={פרקים בספר},
+	secInProceedings={Conference Proceedings},
+	secInProceedings_he={מאמרים בכנסים},
+	}
+	
+@inproceedings{key,
+	author= {Peigin, S. and Epstein, B.},
+	title = {Efficient Parallel Algorithm for Aerodynamic Design of Wing-Body-
+Junction Driven by Accurate Navier-Stokes Computations},
+	booktitle = {21st International Conference on
+Parallel Computational Fluid Dynamics},
+	month = {May},
+	year = 2009,
+	address = {Moffett Field, California, USA}
+}
+
+@inproceedings{key,
+	author = {Epstein, B. and Peigin, S.},
+	title = {Treatment of non- matched grids for high- accuracy RANS solutions},
+	booktitle = {Proceedings of the 19th AIAA Computational Fluid Conference, AIAA paper},
+	YEAR = {2009},
+	ADDRESS = {San-Antonio, Texas},
+	MONTH = Jun,
+	year = 2009
+}
+
+@inproceedings{key,
+	author={Epstein, B. and Peigin, S.},
+	title = {Parallel Treatment of non-matched grids for industrial Navier-Stokes simulations},
+	booktitle = {22nd International Conference on Parallel Computational Fluid Dynamics},
+	month = May,
+	year = 2010,
+	address = {Koohsiung, Taiwan}
+}
+	
+	
+@incollection{key,	
+	author = {Epstein, B. and S{\'{e}}ror, S. and Peigin, S. and Rubin, T.},
+	title = {Development of an accurate multiblock
+multiface parallel Navier-Stokes code NES with the Spallart-Almares model for complex aerodynamic configurations}, 
+	booktitle = {Aerospace Applications From High Subsonic to Hypersonic Regime},
+	pages = {460--469},
+	address = {CIMNE, Barcelona, Spain},
+	year = {2002}
+}
+
+@incollection{PEIGIN2003507,
+title = {Parallel high accuracy CFD code for complete aircraft viscous flow simulations},
+editor = {K. Matsuno and A. Ecer and N. Satofuka and J. Periaux and P. Fox},
+booktitle = "Parallel Computational Fluid Dynamics 2002",
+publisher = "North-Holland",
+address = "Amsterdam",
+pages = "507 -- 514",
+year = "2003",
+isbn = "978-0-444-50680-1",
+doi = "10.1016/B978-044450680-1/50064-4",
+url = "http://www.sciencedirect.com/science/article/pii/B9780444506801500644",
+author = "S. Peigin and B. Epstein and T. Rubin and S. Séror",
+abstract = "We present a highly scalable parallelization of a high-accuracy 3-dimensional serial multiblock Navier-Stokes solver. The code solves the full Navier-Stokes equations and it is capable of performing large-scale computations for practical configurations in industrial enviroment. The parallelization strategy is based on the geometrical domain decomposition principle, and on the overlapped communication and computation concept. The important advantage of the strategy is that the suggested type of message-passing ensures a very high scalability of the algorithm from the network point of view, because, on average, the communication work per processor is not increased if the number of processors is increased. The parallel multiblock-structured Navier-Stokes solver based on the PVM routines was implemented on 106-processors distributed memory cluster managed by the MOSIX software package. Analysis of the results demonstrated high level of parallel efficiency (speed up) of the computational algorithm. This allowed the reduction of the execution time for large-scale computations employing 10 million of grid points, from an estimated 46 days on the SGI ORIGIN 2000 computer (in the serial single-user mode) to 5-6 hours on 106-processors cluster. This means that the parallel multiblock full Navier-Stokes code can be successfully used for large-scale practical aerodynamic simulations of the complete aircraft on millions-points grids in cruise as well as take-off and landing regimes on a daily basis, as needed in industry."
+}
+
+
+
+@incollection{PEIGIN2004505,
+title = " - Multilevel parallelization strategy for optimization of aerodynamic shapes",
+editor = "A. Ecer and N. Satofuka and J. Periaux and P. Fox",
+booktitle = "Parallel Computational Fluid Dynamics 2003",
+publisher = "Elsevier",
+address = "Amsterdam",
+pages = "505 - 512",
+year = "2004",
+isbn = "978-0-444-51612-1",
+doi = "10.1016/B978-044451612-1/50065-2",
+url = "http://www.sciencedirect.com/science/article/pii/B9780444516121500652",
+author = "S. Peigin and B. Epstein and S. Gali",
+abstract = "Publisher Summary
+This chapter discusses the multilevel parallelization strategy for optimization of aerodynamic shapes. The optimization method employs a full Navier-Stokes solver for accurate estimation of the objective function. As such it requires huge computational resources, which make efficient parallelization crucial for successful promotion of the method to an environmental engineering. The algorithm is based on a multilevel embedded parallelization approach, including parallelization of the full Navier-Stokes solver with parallel CFD (computational fluid dynamics) evaluation of objective function, parallelization of optimization process with parallel optimal search on multiple search domains, and finally, parallel grid generation. Applications (implemented on a 144-processors distributed memory cluster) include various transonic profile optimizations in the presence of nonlinear constraints. The suggested multilevel parallelization which efficiently makes use of computational power supplied by massively parallel processors (MPP), leads to a significant computational time-saving and allows the application of this method to practical aerodynamic design in the aircraft industry."
+}
+
+@incollection{PEIGIN199633,
+title = "Massive Parallelization as Prinicipal Technology for Constrained Optimization of Aerodynamic Shapes",
+editor = "G. Winter and A. Ecer and P. Fox and J. Periaux and N. Satofuka",
+booktitle = "Parallel Computational Fluid Dynamics 2004",
+publisher = "Elsevier Science",
+address = "Amsterdam",
+pages = "33 - 44",
+year = "1996",
+isbn = "978-0-444-52024-1",
+doi = "10.1016/B978-044452024-1/50005-1",
+url = "http://www.sciencedirect.com/science/article/pii/B9780444520241500051",
+author = "S. Peigin and B. Epstein",
+abstract = "Publisher Summary
+This chapter introduces massive parallelization as principal technology for constrained optimization of aerodynamic shapes. The main goal of the aerodynamic shapes optimization is to determine a configuration that minimizes the cost function subject to various constraints imposed on the sought solution. There are two classes of constraints: aerodynamic constraints and geometrical constraints on the shape. Massive parallelization is a crucial element of any successful optimization of aerodynamic shapes in engineering environment. This chapter discusses implementation of massive parellization technology in the framework of a new efficient optimization tool (the code OPTIMAS—OPTIMization of Aerodynamic Shapes). The optimization method employs genetic algorithms (GAs) in combination with a reduced-order models (ROM) method, based on linked local databases obtained by full Navier–Stokes computations. The algorithm is built upon a multilevel embedded parallelization strategy, which efficiently makes use of computational power supplied by massively parallel processors. Applications (implemented on a 456-processors distributed memory cluster) include various 3D optimizations in the presence of nonlinear constraints. The results demonstrate that the approach combines high accuracy of optimization with high parallel efficiency and thus allows application of the method to practical aerodynamic design in the aircraft industry."
+}
+
+@incollection{ key,
+	author = {Peigin, S. and Epstein, B. and Gali, S.}, 
+	title = {Parallel implementation of fictitious surfaces method for aerodynamic shape optimization},
+	booktitle = {Lecture notes in computational science and engineering},
+	volume = {74},
+	pages = {71--82}, 
+	publisher= {Springer}, 
+	year = {2010},
+	doi = {10.1007/978-3-642-14438-7_7}
+}
+
+@incollection {key,
+	author = {Peigin, S. and Epstein, B.},
+	title = {Massive Parallelization for industrial CFD based analysis and design},
+	booktitle =	{Trends in Parallel, Distributed, Grid and Cloud Computing in Engineering, Computational Science, Engineering and Technology Series},
+	volume = {27},
+	pages = {269--290},
+	publisher = {Saxe-Coburg Publications}, 
+	year = {2011},
+	editor = {Iványi, P. and  Topping, B.H.V.},
+	doi = {10.4203/csets.27.12}
+}
+
+
+@article{B2018,
+   title={The Stability of the Optimal Aerodynamic Design of an Isolated Three-Dimensional Wing to Its Initial Form},
+   author={S. Peigin and  S. Timchenko and B. Epstein},
+   journal={Technical Physics},
+   volume=63,
+   issue=12,
+   pages={1736--1742},
+   year=2018,
+   month={Dec},
+   doi={10.1134/S1063784218120149}
+}
+
+@inproceedings{doi:10.2514/6.2016-1543,
+author = {Boris Epstein and Sergey Peigin},
+title = {Application of OPTIMENGA Software to Multi-point Multi-constrained Aerodynamic Design},
+booktitle = {54th AIAA Aerospace Sciences Meeting},
+year = 2016,
+doi = {10.2514/6.2016-1543},
+URL = {https://arc.aiaa.org/doi/abs/10.2514/6.2016-1543},
+eprint = {https://arc.aiaa.org/doi/pdf/10.2514/6.2016-1543}
+}
+
+
+@article{peigin2004parallel,
+  title={Parallel large scale high accuracy Navier-Stokes computations on distributed memory clusters},
+  author={Peigin, S. and Epstein, B. and Rubin, T. and S{\'{e}}ror, S.},
+  journal={The Journal of Supercomputing},
+  volume={27},
+  number={1},
+  pages={49--68},
+  year={2004},
+  month = Jan, 
+  publisher={Springer},
+  doi = {10.1023/A:1026246805774}
+}
+
+@article{epstein2005constrained,
+  title={Constrained aerodynamic optimization of three-dimensional wings driven by Navier-Stokes computations},
+  author={Epstein, Boris and Peigin, Sergey},
+  journal={AIAA journal},
+  volume={43},
+  number={9},
+  pages={1946--1957},
+  year={2005}
+}
+
+@article{peigin2004embedded,
+  title={Embedded parallelization approach for optimization in aerodynamic design},
+  author={Peigin, S and Epstein, Boris},
+  journal={The Journal of Supercomputing},
+  volume={29},
+  number={3},
+  pages={243--263},
+  year={2004},
+  publisher={Springer},
+  doi = {10.1023/B:JOMP.0000027957.39059.6b}
+}
+
+
+@article{peigin2008multiconstrained,
+  title={Multiconstrained aerodynamic design of business jet by CFD driven optimization tool},
+  author={Peigin, Sergey and Epstein, Boris},
+  journal={Aerospace Science and Technology},
+  volume={12},
+  number={2},
+  pages={125--134},
+  year={2008},
+  publisher={Elsevier}
+}
+
+@article{epstein1992cartesian,
+  title={Cartesian Euler method for arbitrary aircraft configurations},
+  author={Epstein, Boris and Luntz, Alexander L. and Nachshon, Aharon},
+  journal={AIAA journal},
+  volume={30},
+  number={3},
+  pages={679--687},
+  year={1992},
+  month = May,
+  doi = {10.2514/3.10972}
+}
+
+@article{epstein2006new,
+  title={A new efficient technology of aerodynamic design based on CFD driven optimization},
+  author={Epstein, Boris and Peigin, Sergey and Tsach, Shlomo},
+  journal={Aerospace science and technology},
+  volume={10},
+  number={2},
+  pages={100--110},
+  year={2006},
+  publisher={Elsevier}
+}
+
+@article{
+	keykey,
+   title={An accurate ENO driven multigrid method applied to 3-D turbulent transonic flows},
+   author = {B. Epstein and I. Yavneh and A. Averbuch},
+   journal = { Journal of Computational Physics},
+   volume = 168,
+   issue = 2,
+   pagees = "316--338",
+   year = 2001,
+   month = Apr,
+   doi = {10.1006/jcph.2001.6698}
+}
+
+@article{averbuch2006edge,
+  title={Edge-enhancement postprocessing using artificial dissipation},
+  author={Averbuch, Amir and Epstein, Boris and Rabin, Neta and Turkel, Eli},
+  journal={IEEE transactions on image processing},
+  volume={15},
+  number={6},
+  pages={1486--1498},
+  year={2006},
+  publisher={IEEE},
+  doi = {10.1109/TIP.2006.875734}
+}
+
+@inproceedings{epstein2014aerodynamic,
+  title={Aerodynamic Shape Optimization by Automatic Hybrid Genetic Tool OPTIMENGA\_AERO},
+  author={Epstein, Boris and Peigin, Sergey},
+  booktitle={52nd Aerospace Sciences Meeting},
+  pages={0569},
+  year={2014},
+  doi={10.2514/6.2014-0569}
+}
+
+
+@article{epstein2003accurate,
+  title={Accurate multiblock Navier-Stokes solver for complex aerodynamic configurations},
+  author={Epstein, Boris and Rubin, Theodor and S{\'{e}}ror, St{\'{e}}phane},
+  journal={AIAA journal},
+  volume={41},
+  number={4},
+  pages={582--594},
+  year={2003},
+  doi={10.2514/2.2012}
+}
+
+@inproceedings{seror2003implementation,
+  title={Implementation and Validation of the Spalart-Allmaras Turbulence Model for Parallel Processing on PC's Cluster},
+  author={S{\'{e}}ror, Stephane and Rubin, Theodor and Peigin, Serguey and Epstein, Boris},
+  booktitle={21st AIAA Applied Aerodynamics Conference},
+  pages={3404},
+  year={2003}
+}
+
+@inproceedings{vassberg2008pilot,
+  title={A Pilot Project in Preparation of an Aerodynamic Optimization Workshop with Lessons Learned},
+  author={Vassberg, John and Peigin, Sergey and Jameson, Antony and Epstein, Boris and Roman, Dino and Harrison, Neal},
+  booktitle={26th AIAA Applied Aerodynamics Conference},
+  pages={6226},
+  year={2008}
+}
+
+@inproceedings{epstein2003robust,
+  title={A Robust Hybrid GA/ROM Approach to Multiobjective Constrained Optimization in Aerodynamics},
+  author={Epstein, Boris and Peigin, Sergey},
+  booktitle={16th AIAA Computational Fluid Dynamics Conference},
+  pages={4092},
+  year={2003},
+  month = Aug,
+  doi = {10.2514/1.992}
+}
+
+@article{epsteinhybridization,
+  title={HYBRIDIZATION OF HETEROGENEOUS 3D CFD DISCRETIZATIONS VIA DIRECT FLUX OPTIMIZATION},
+  author={Epstein, Boris and Peigin, Sergey},
+  year = 2008,
+  month = Sep,
+  url = {http://www.icas.org/ICAS_ARCHIVE/ICAS2008/ABSTRACTS/089.HTM}
+}
+
+@article{peigin2006optimization,
+  title={Optimization of Blended Wing Body Aircraft by Automatic CFD Driven Design Tool},
+  author={Peigin, Sergey and Epstein, Boris},
+  year={2006}
+}
+
+
+@inproceedings{epstein2005robust,
+  title={Robust Drag Minimization of Aerodynamic Shapes in Engineering Environment},
+  author={Epstein, Boris and Peigin, Sergey},
+  booktitle={23rd AIAA Applied Aerodynamics Conference},
+  pages={5082},
+  year={2005}
+}
+
+@inproceedings{peigin2003efficient,
+  title={Efficient Parallelization Strategy for a High Accuracy Navier-Stokes Algorithm},
+  author={Peigin, Sergey and Epstein, Boris and Rubin, Teddy and S{\'{e}}ror, Stefan},
+  booktitle={41st Aerospace Sciences Meeting and Exhibit},
+  pages={430},
+  year={2003}
+}
+
+@inproceedings{peiginincorporation,
+  title={Incorporation of Fictitious Surfaces Into Aircraft Geometry for Aerodynamic Shape Optimization},
+  author={Peigin, Sergey and Epstein, Boris},
+  booktitle={46th AIAA Aerospace Sciences Meeting and Exhibit},
+  pages={303},
+  year = 2012,
+  month = Jun,
+  doi = {10.2514/6.2008-303}
+}
+
+@inproceedings{epstein2015application,
+  title={Application of OPTIMENGA\_AERO to Constrained Aerodynamic Design},
+  author={Epstein, Boris and Peigin, Sergey},
+  booktitle={53rd AIAA Aerospace Sciences Meeting},
+  pages={1944},
+  year={2015},
+  doi = {10.2514/6.2015-1944}
+}
+
+@inproceedings{epstein3d,
+  title={3D Optimization of Aerodynamic Wings Based on Accurate CFD Computations},
+  author={Epstein, Boris and Peigin, Sergey},
+  booktitle={43rd AIAA Aerospace Sciences Meeting and Exhibit},
+  pages={454},
+  year = 2012,
+  doi = {10.2514/6.2005-454}
+}
+
+@inproceedings{peigindesign,
+  title={Design of Aerodynamic Shapes in Engineering Environment},
+  author={Peigin, Sergey and Epstein, Boris and Gali, Shlomit},
+  booktitle={44th AIAA Aerospace Sciences Meeting and Exhibit},
+  pages={931},
+  year = 2012,
+  year = 2012,
+  doi = {10.2514/6.2006-931}
+}
+
+@article{epstein1997aerodynamically,
+  title={Aerodynamically accurate three-dimensional Navier-Stokes method},
+  author={Epstein, B. and Jacobs, A. and Nachshon, A.},
+  journal={AIAA journal},
+  volume={35},
+  number={6},
+  pages={1089--1090},
+  year={1997},
+  doi = {10.2514/2.202}
+}
+
+@inproceedings{epstein1994eno,
+  title={An ENO Navier-Stokes solver applied to 2-D subsonic, transonic and hypersonic aerodynamic flows},
+  author={Epstein, B and Nachshon, A},
+  booktitle={32nd Aerospace Sciences Meeting and Exhibit},
+  pages={303},
+  year={1994}
+}
+
+@article{Boris2009China,
+  title={應用基因演算法求 NACA0012 翼剖面最大升阻比之探討},
+  author={藍庭顯 and 黃翔瑜 and 許彥文},
+  journal={Journal of China Institute of Technology},
+  volume={40},
+  year={2009}
+}
+
+@article{epstein1989multigrid,
+  title={Multigrid transonic computations about arbitrary aircraft configurations},
+  author={Epstein, B. and Luntz, A. L. and Nachshon, A.},
+  journal={Journal of Aircraft},
+  volume={26},
+  number={8},
+  pages={751--759},
+  year={1989},
+  doi = {10.2514/3.45835}
+}
+
+@article{epstein2009comparative,
+  title={Comparative study of three-dimensional wing drag minimization by different optimization techniques},
+  author={Epstein, Boris and Jameson, Antony and Peigin, Sergey and Roman, Dino and Harrison, Neal and Vassberg, John},
+  journal={Journal of Aircraft},
+  volume={46},
+  number={2},
+  pages={526--541},
+  year={2009},
+  doi = {10.2514/1.38216}
+}
+
+@article{peigin2004robust,
+  title={Robust optimization of 2D airfoils driven by full Navier--Stokes computations},
+  author={Peigin, Sergey and Epstein, Boris},
+  journal={Computers \& fluids},
+  volume={33},
+  number={9},
+  pages={1175--1200},
+  year={2004},
+  publisher={Elsevier},
+  doi = {10.1016/j.compfluid.2003.11.001}
+}
+
+
+@article{epstein2004robust,
+  title={Robust hybrid approach to multiobjective constrained optimization in aerodynamics},
+  author={Epstein, Boris and Peigin, Sergey},
+  journal={AIAA journal},
+  volume={42},
+  number={8},
+  pages={1572--1581},
+  year={2004}
+}
+
+@article{peigin2006computational,
+  title={Computational fluid dynamics driven optimization of blended wing body aircraft},
+  author={Peigin, Sergey and Epstein, Boris},
+  journal={AIAA journal},
+  volume={44},
+  number={11},
+  pages={2736--2745},
+  year={2006},
+  doi= {10.2514/1.19757}
+}
+
+@article{boris1975,
+   title = {Net schemes for the Navier- Stokes equations associated with projections},
+   author = {  V. Rivkind  and B. Epstein},
+   journal = { USSR Comp. Math. Physics},
+   volume = 15,
+   issue = 4,
+   pages =  "240--246",
+   year = 1975,
+   doi = {10.1016/0041-5553(75)90186-X}
+}
+
+@article{seror2005implementation,
+  title={Implementation and validation of the Spalart-Allmaras turbulence model in parallel environment},
+  author={S{\'{e}}ror, Stephane and Rubin, Theodor and Peigin, Sergey and Epstein, Boris},
+  journal={Journal of aircraft},
+  volume={42},
+  number={1},
+  pages={179--188},
+  year={2005}
+}
+
+
+@article{epstein2007accurate,
+  title={Accurate CFD driven optimization of lifting surfaces for wing-body configuration},
+  author={Epstein, Boris and Peigin, Sergey},
+  journal={Computers \& fluids},
+  volume={36},
+  number={9},
+  pages={1399--1414},
+  year={2007},
+  publisher={Elsevier},
+  month = Jan,
+  doi = {10.2514/6.2007-61}
+}
+
+@article{epstein2007efficient,
+  title={Efficient approach for multipoint aerodynamic wing design of business jet aircraft},
+  author={Epstein, Boris and Peigin, Sergey},
+  journal={AIAA journal},
+  volume={45},
+  number={11},
+  pages={2612--2621},
+  year={2007}
+}
+
+@article{braverman2004fast,
+  title={A fast spectral subtractional solver for elliptic equations},
+  author={Braverman, Elena and Epstein, Boris and Israeli, Moshe and Averbuch, Amir},
+  journal={Journal of Scientific Computing},
+  volume={21},
+  pages={91--128},
+  year={2004},
+  publisher={Springer},
+  doi = {10.1023/B:JOMP.0000027957.39059.6b}
+}
+
+@article{peigin2007multipoint,
+  title={Multipoint aerodynamic design of wing-body configurations for minimum drag},
+  author={Peigin, Sergey and Epstein, Boris},
+  journal={Journal of aircraft},
+  volume={44},
+  number={3},
+  pages={971--980},
+  year={2007}
+}
+
+@article{peigin2008aerodynamic,
+  title={Aerodynamic optimization of essentially three-dimensional shapes for wing-body fairing},
+  author={Peigin, Sergey and Epstein, Boris},
+  journal={AIAA journal},
+  volume={46},
+  number={7},
+  pages={1814--1825},
+  year={2008}
+}
+
+@article{peigin2006robust,
+  title={Robust drag minimization of aerodynamic wings in engineering environment},
+  author={Peigin, Sergey and Epstein, Boris},
+  journal={Journal of aircraft},
+  volume={43},
+  number={4},
+  pages={1195--1204},
+  year={2006}
+}
+
+@article{POPOVICH2013292,
+title = "Massively Parallel Industry-strength Design of Aerodynamic Wings",
+journal = "Procedia Engineering",
+volume = "61",
+pages = "292 - 297",
+year = "2013",
+note = "25th International Conference on Parallel Computational Fluid Dynamics",
+issn = "1877-7058",
+doi = "10.1016/j.proeng.2013.08.018",
+url = "http://www.sciencedirect.com/science/article/pii/S1877705813012009",
+author = "C. Popovich and N. Shapiro and B. Epstein and S. Peigin",
+keywords = "Embedded parallelization, Aerodynamic design, CFD, Optimization, Genetic Algorithms, Aircraft industry.",
+abstract = "The paper addresses an application of the software product OPTIMENGA_AERO to a real-life design of aerodynamic shapes. The optimization method employs Genetic Algorithms which make use of a full Navier-Stokes solver for accurate estimation of major aerodynamic coefficients in the evaluation of the objective function. Thereby, the implementation of the method requires huge computational resources, which makes efficient parallelization crucial for successful promotion of the method to an engineering environment. The algorithm is based on a multilevel embedded parallelization approach, which includes five levels of parallelization. Multi-point aerodynamic shape design (implemented on a medium-size distributed memory cluster) deals with transonic wing optimization for minimum drag in the presence of multiple nonlinear constraints. The software has showed its robustness in the demanding industrial environment when applied to real-life industrial design. The results demonstrate high accuracy of optimization combined with high parallel efficiency. The results indicate that the described computational technology may allow for a technological breakthrough in the industrial aerodynamic design of air vehicles in aircraft industry."
+}
+
+
+@article{epstein2010treatment,
+  title={Treatment of nonmatched grids for high-accuracy Navier-Stokes solutions},
+  author={Epstein, Boris and Peigin, Sergey},
+  journal={AIAA journal},
+  volume={48},
+  number={7},
+  pages={1542--1553},
+  year={2010},
+  month=Jul,
+  doi = {10.2514/1.J050300}
+}
+
+@article{averbuch2000efficient,
+  title={Efficient parallelization of a three-dimensional Navier-Stokes solver on MIMD multiprocessors},
+  author={Averbuch, Amir and Epstein, Boris and Ioffe, Ludimila and Yavneh, Irad},
+  journal={The Journal of Supercomputing},
+  volume={17},
+  number={2},
+  pages={123--142},
+  year={2000},
+  month = Jan,
+  publisher={Springer},
+  doi = {10.1023/A:1008128019283}
+}
+
+@article{epstein2016automatic,
+  title={Automatic optimization of wing--body--under-the-wing-mounted-nacelle configurations},
+  author={Epstein, Boris and Peigin, Sergey},
+  journal={Journal of Aircraft},
+  volume={53},
+  number={3},
+  pages={691--700},
+  year={2016},
+  month = May,
+  publisher={American Institute of Aeronautics and Astronautics},
+  doi = {https://doi.org/10.2514/1.C033641}
+}
+
+@article{peigin2015automatic,
+  title={Automatic Design of Wing--Body--Nacelle Configurations for Minimum Drag},
+  author={Peigin, Sergey and Epstein, Boris},
+  journal={AIAA Journal},
+  volume={53},
+  number={7},
+  pages={1994--2004},
+  year={2015},
+  month=Jul,
+  publisher={American Institute of Aeronautics and Astronautics},
+  doi = {10.2514/1.J053594}
+}
+
+
+@inproceedings{peigin20053,
+  title={3 D OPTIMIZATION OF AERODYNAMIC WINGS BASED ON ACCURATE CFD COMPUTATIONS},
+  author={Peigin, Sergey and Epstein, Boris},
+  booktitle={43 rd AIAA Aerospace Sciences Meeting and Exhibit},
+  pages={2005},
+  year={2005}
+}
+
+
+
+@inproceedings{peigin2006cfd,
+  title={CFD driven optimization of blended wing body aircraft},
+  author={Peigin, Sergey and Epstein, Boris},
+  booktitle={24th AIAA Applied Aerodynamics Conference},
+  pages={3457},
+  year={2006}
+}
+
+@inproceedings{peigin2005hybrid,
+  title={A Hybrid Approach to Multiconstraint Aerodynamic Optimization Driven by Full Navier-Stokes Computations},
+  author={Peigin, Sergey and Epstein, Boris},
+  booktitle={17th AIAA Computational Fluid Dynamics Conference},
+  pages={4855},
+  year={2005}
+}
+
+@article{peigin2014Chineese,
+	title = {可应用于民机空气动力设计中的数值优化方法 Numerical optimization method applicable to civil aircraft aerodynamic design},
+  author={PEIGIN, Sergey and 朱自强 Zhu Ziqiang and EPSTEIN, Boris},
+  journal={航空学报 (Journal of Aviation)},
+  pages={58--69},
+  year={2014},
+  doi = { 10.7527/S1000-6893.2013.0249}
+}
+
+
+@article{epstein2008accurate,
+  title={ACCURATE INCORPORATION OF NON-TO-POINT MATCHED COMPUTATIONAL BLOCKS INTO FULL NAVIER-STOKES COMPUTATIONS ON STRUCTURED GRIDS},
+  author={Epstein, Boris and Peigin, Sergey},
+  year={2008}
+}
+
+
+
+@article {key,
+	author = {Rivkind, V. and Epstein, B.},
+	title = {Alternating directions net schemes for solving the Navier-Stokes equations in orthogonal curvilinear coordinates},
+	journal = {Transactions of the Seminar on Viscous Fluid Mechanics (Russian), Novosibirsk},
+	volume={1},
+	pages = {90--95},
+	year = 	1976
+}
+
+@article {key,
+	author = {Epstein, B. and Rivkind, V.},
+	title = {Numerical experiment by projection schemes for the Navier-Stokes equations (Russian)}, 
+	journal = {Methods of Computation, (Metody Vichisl.)},
+	volume = 10,
+	pages = {143-151},
+	year =	{1976}
+}
+
+@article {key,
+	author = {Luntz, A. and Epstein, B.}, 
+	title = {Modular potential flow computation including fuselage and
+wing tip effects},
+	journal = {Israel Journal of Technology},
+	volume = 21,
+	pages = "76--80",
+	year = {1983}
+}
+
+@article {key,
+	author = {Rivkind, V. and Epstein, B.},
+	title = {The numerical method for solving non-stationary free
+boundary problems for the Navier-Stokes equations in curvilinear systems},
+	journal = {Vestnik Leningrad Univ.},
+	volume = {13},
+	pages = {79--83},
+	year = {1984}
+}
+
+@article {key,
+	author = {Luntz, A. and Epstein, B.},
+	title = {A multigrid full potential transonic code for arbitrary configurations},
+	journal = {GMD - Studien Nr 110 (German Institute for Mathematics and Data Processing),
+	GMD Sankt-Augustin},
+	country = 	{Germany},
+	pages =	{101--110},
+	month = {May} ,
+	year = 1986
+}
+
+@article {key,
+	author = {Epstein, B.},
+	title = {A scheme of variable directions type for the Navier-Stokes problem (Russian, English Summary)},
+	journal = {Vestnik Leningrad Univ., 7, Math. Mech. Astronom.},
+	volume = 2,
+	pages = { 166--168},
+	year = {1974},
+	notclear1 = {MR, vol. 50, #6186, 1975},
+	notclear2 = {The American Mathematical Society in: VESTNIK Leningrad University Mathematics, 7,1979}
+}
+
+
+	
+@article {key,
+	author = {Epstein, B. and Rivkind, V.},
+	title = {Projection schemes for the solution of the Navier- Stokes equations in orthogonal curvilinear coordinates (Russian, English summary)},
+	journal = {Leningrad Univ., 13, Math. Mech. Astronom.},
+	volume = 	3,
+	pages = {56--63},
+	year = 	1974,
+	notclear2 = {MR, vol. 50, #11799, 1975},
+	notcler3 = {The American Mathematical Society in: VESTNIK Leningrad University Mathematics, 7, 1979}
+}}
+
+@article{key,
+	author = {Epstein, B. and Rivkind, V.},
+	title = {Grid schemes with projection for the solution of the equations of the dynamics of viscous incompressible fluid (Russian, English summary)},
+	journal = {Vestnik Leningrad Univ., 13, Math. Mech. Astronom.},
+	volume = 3,
+	pages = {144--147},
+	year =	1975,
+	notclear1 = {MR vol. 52, #9808, 1976.}
+}
+
+@article {
+	key,
+	author = {Epstein, B. and Rivkind, V.},
+	title = {High accuracy schemes for solving the Navier-Stokes equations (Russian)},
+	journal = {Numerical Methods in the Mechanics of Continuous Medium},
+	volume = 4,
+	number = 5,
+	pages = {105--111},
+	year = 1973
+}
+
+@article {key,
+	author = {Epstein, B. and Shuster, A.}, 
+	title = {Construction of the tabular values in the numerical integration of a system of ordinary differential equations (Russian)},
+	journal = {Met. Vichisl.},
+	volume = 8,
+	pages = {19--22},
+	year  = {1973},
+	notsure = {MR, 50, 1975, #8988}
+}
+
+@inproceedins{key,
+	author = {Epstein, B. and Peigin, S.},
+	title = {Constrained optimization of aerodynamic shapes via
+minimization of total drag},
+	booktitle={IPDO 2004 (Inverse Problems, Design and Optimizationymposium)}, 
+	address = {Rio de Janeiro},
+	month={Ma},
+	year=2004
+}
+
+@inproceedings{key,
+	author={Peigin, S. and Epstein, B.},
+	title={Genetic Algorithms for optimization of aerodynamic shapes},
+	booktitle = {EUROGEN 2003 – Evolutionary Methods for Design, Optimization and Control},
+	address = {Barcelona, Spain},
+	month = Sep,
+	year =	2003
+}
+
+@inproceedings{key,
+	author={Averbuch, A., Braverman, E., Epstein, B. and Israeli M.},
+	title = {On substractional technique
+for fast direct spectral solution of Poisson and Helmholtz equations},
+	booktitle = {Proceedings of the
+3rd International DCDIS Conference on Engineering Applications and Computational
+Algorithms},
+	month=May,
+	year=2003,
+	Address={Gulph, Ontario, Canada}
+}
+	
+@inproceedings{key,
+	author = {Arad, E., Epstein, B., Rubin, T. and Seror, S.},
+	title = {Recent enhancements of the 3D Navier-
+Stokes code NES, Proceedings of the 42nd Israel Conference on Aviation and
+Astronautics},
+	mont=feb,
+	year = 	2002}
+}
+
+
+@inproceedings{key,
+	author={Peigin, S., Epstein, B., Rubin, T. and Seror, S.},
+	title = {Parallel multiblock full Navier-Stokes
+code NES: 10 million points complete aircraft flow simulation},
+	booktitle={Proceedings of the 42nd
+Israel Conference on Aviation and Astronautics},
+	month=feb,
+	year=2002
+}
+
+@inproceedings{key,
+	author= {Epstein, B, Seror, S. and Rubin, T.},
+title={An accurate multiblock 3D ENO driven Navier-Stokes solver for complex aerodynamic configurations},
+	booktitle={Proceedings of the 23rd
+International Congress of Aeronautical Sciences (ICAS 2002)},
+	address={Toronto, Canada},
+	month = Sep,
+	year=2002
+}
+
+
+@inproceedings{key,
+	author={Aboudi, D. and Baharav, E. and Epstein, B. and Luntz, A. and Shepshelovitch, M. Canard},
+	title={LEF design for a multi-mission fighter aircraft},
+	booktitle={Proceedings of 16th Congress of the
+International Council of the Aeronautical Sciences, ICAS, 88:3.11.1},
+	address = {Jerusale}, 
+	pages = {1700--1713},
+	month = 	Aug,
+	year = 1988
+}
+
+
+@inproceedings{ key,
+	author = {Epstein, B. and Luntz, A. and Nachshon, A.},
+	title={Multigrid computation of transonic flow about complex aircraft configurations, using Cartesian grids and local refinement},
+	booktitle ={Proceedings of 16th Congress of the International Council of the Aeronautical
+Sciences, ICAS, 88:4.7.3},
+	address = {Jerusalem},
+	pages = {1038--1046},
+	month = Aug,
+	year = 	1988
+}
+
+
+@inproceedings {key,
+	author = {Epstein, B. and Luntz, A. and Nachshon, A.},
+	title={An Euler solver for arbitrary configurations: further applications},
+	booktitle={Proceedings of the 31st Israel Conference on Aviation and Astronautics},
+	pages={205--216},
+	month=Feb,
+	year=1990
+}
+
+@inproceedings{key,
+	author = {Epstein, B.},
+	title = {New features in CFD technology at the TASHAN Engineering Center
+at IAI},
+	booktitle={Proceedings of the 33rd Israel Conference on Aviation and Astronautics},
+	pages = {125--132},
+	month = {Feb}, 
+	year = 1993
+}
+
+@inproceedings{key,
+	autor = {Epstein, B. and Nachshon, A.},
+	title = {An ENO 3-D Navier-Stokes solver applied to 2-D
+subsonic, transonic and hypersonic flows},
+	booktitle = {32nd Aerospace Sciences Meeting, AIAA paper 94-0303},
+	address = {Reno, NV},	
+	month = Jan,
+	Year = 	1994
+}
+
+@inproceedings{key,
+	author = {Epstein, B. and Jacobs, A. and Nachshon, A.},
+	title = {An ENO 3-D multilevel Navier-Stokes
+method: towards an aerodynamically accurate CFD tool},
+	booktitle = {15th International Conference
+on Numerical Methods in Fluid Mechanics},
+	address = {Monterey, California}, 
+	month = {Jun},
+	year = 	1996
+}
+
+@inproceedings{key,
+	Author = {Epstein, B. and Jacobs, A. and Nachshon, A.},
+	title = {Viscous computations by a 3-D ENO Navier-Stokes method},
+	booktitle = {Proceedings of the 37th Israel Conference on Aviation and Astronautics},
+	pages = {98-109},
+	month = {Feb},
+	year = 1997
+}
+
+@inproceedings{key,
+	author = {Epstein, B. and Averbuch, A. and Yavneh, I.},
+	title = {An accurate ENO driven Multigrid method
+applied to 3-D turbulent transonic flows},
+	booktitle = {Proceedings of the 14th AIAA Computational
+Fluid Conference},
+	pages = {705--715}, 
+	address = {Norfolk, Virginia},
+	month = Jun,
+	year =	1999
+}
+
+
+@inproceedings{key,
+	author = {Seror, S. and Epstein, B. and Rubin, T.},
+	title = {Construction of a multiblock 3-D full Navier-
+Stokes code for practical aerodynamic computations},
+	booktitle = {Proceedings of the 41st Israel
+Conference on Aviation and Astronautics},
+	month = Feb,
+	year = 2001
+}

@@ -1,0 +1,485 @@
+<DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Introduction to Operating Systems</title>
+</head>
+<body onload="initQ()">
+<script>
+var args = {
+	pgdir: 0,
+	va: 0,
+    alloc: 0,
+    kalloc: 0,
+	debug: 0
+};
+
+
+function initQ() {
+        mem.init();
+        args.pgdir = mem.p2v(mem.palloc());
+        args.va = Math.trunc(Math.random() * Math.pow(2, 32));
+    args.alloc = Math.trunc(Math.random() * 2);
+    args.kalloc = 0;
+
+        var pgdir = document.getElementById("pgdir");
+        pgdir.innerHTML = args.pgdir.toString(16).padStart(8, "0");
+        var va = document.getElementById("va");
+        va.innerHTML = args.va.toString(16).padStart(8, "0");
+        var alloc = document.getElementById("alloc");
+    alloc.innerHTML = args.alloc.toString(16).padStart(1, "0");
+
+    if (Math.random() < 0.25)
+        args.kalloc = 0;
+    else
+        args.kalloc = mem.p2v(mem.palloc());
+    let kalloc = document.getElementById("kalloc");
+    kalloc.innerText = args.kalloc.toString(16).padStart(8, "0");
+
+
+        var i0 = (args.va >> 22) & 1023;
+        var imin = i0 - 10;
+        if (imin < 0) imin = 0;
+        imin &= ~3;
+        var imax = i0 + 10;
+        if (imax > 1023) imax = 1023;
+
+        var i;
+        for (i = imin; i < imax; i++) {
+            if (Math.random() < 0.5) {
+                var x = (Math.trunc(Math.random() * Math.pow(2, 19)) << 12) + (Math.trunc(Math.random() * 4) << 1);
+                mem.Lwrite(mem.v2p(args.pgdir) + i * 4, x);
+                continue;
+            }
+            var p = mem.palloc();
+            mem.Lwrite(mem.v2p(args.pgdir) + i * 4, p | 7);
+
+            var j;
+            for (j = 0; j < 1024; j++) {
+                if (Math.random() < 0.5)
+                    var x = (Math.trunc(Math.random() * Math.pow(2, 19)) << 12) + (Math.trunc(Math.random() * 4) << 1);
+                else
+                    var x = (Math.trunc(Math.random() * Math.pow(2, 19)) << 12) + 7;
+                mem.Lwrite(p + j * 4, x);
+            }
+        }
+
+        setQ(0);
+
+        correct(0, -1);
+        correct(1, -1);
+    correct(2, -1);
+
+    var i;
+    for (i = 0; ; i++) {
+        var e = document.getElementById("answer-" + i);
+        if (e == null) break;
+        if (e.tagName == "SPAN")
+            e.innerText = "";
+        else
+            e.value = "";
+    }
+
+        mem.pagesUsed = mem.pagesUsed.sort(function (a, b) { return (Math.sign(a - b)); });
+        var i;
+        for (i = 0; i < mem.pagesUsed.length; i++) {
+            if (mem.pagesUsed[i] == (mem.v2p(args.pgdir) >>> 12))
+                dump(mem.pagesUsed[i] << 12, (args.va >>> 22) & 1023);
+            else
+                dump(mem.pagesUsed[i] << 12, Math.trunc(Math.random() * 1024));
+        }
+
+        if (args.debug != 0) {
+            var debug0 = document.getElementById("debug0");
+            var i0 = (args.va >>> 22) & 1023;
+            debug0.innerText = "i0=" + i0.toString(16) + " " + (args.pgdir + i0 * 4).toString(16);
+        }
+        return;
+}
+
+    function setQ(num) {
+        var i;
+        for (i = 0; ; i++) {
+            var e = document.getElementById("Q" + i);
+            if (e == null)
+                break;
+            if (i == num) {
+                e.style.border = "solid";
+                var flag = false;
+            } else {
+                e.style.border = "none";
+                var flag = true;
+            }
+
+            for (const s of ["submit-", "cheat-", "check-", "next-", "answer-"]) {
+                let e = document.getElementById(s + i);
+                if (e != null)
+                    if (e.tagName != "SPAN")
+                        e.disabled = flag;
+            }
+        }
+    }
+
+function dump(tbl, idx) {
+	var dump = document.getElementById("dump");
+
+	var imin = idx - 10;
+	if (imin < 0) imin = 0;
+	imin &= ~3;
+
+	var imax = idx + 10;
+	if (imax > 1023) imax = 1023;
+
+	var i;
+	var r = dump.insertRow(-1);
+	var c = r.insertCell(0);
+	for (i = 1; i < 9; i++) {
+		var c = r.insertCell(i);
+		c.align = "center";
+		c.innerText = "+" + ((i-1)*4).toString(16).padStart(2, "0");
+	}
+	var cn = 0;
+	for (i = imin; i < imax; i++) {
+		if ((cn  % 9) == 0) {
+			var r = dump.insertRow(-1);
+			cn = 0;
+			var c = r.insertCell(cn);
+			c.innerText = (tbl + i * 4).toString(16).padStart(8, "0");
+			cn++;
+		}
+		var c = r.insertCell(cn);
+		c.innerText = mem.Lread(tbl + i * 4).toString(16).padStart(8, "0");
+		cn++;	
+	}
+}
+
+var mem = {
+	pagesUsed: [],
+	M: [],
+	init: function () {pagesUsed=[];},
+	Lwrite: function(addr, value) {this.M[addr/4]=value;},
+	Lread:  function(addr) {return(this.M[addr/4]);},
+	p2v: function(addr) {return(addr + Math.pow(2,31));},
+	v2p: function(addr) {return(addr & 0x7fffffff);},
+	
+	palloc: function() {
+		do { 
+			var page = Math.trunc(Math.random() * 1024);
+		} while (this.pagesUsed.indexOf(page) >= 0);
+		this.pagesUsed.push(page);
+		var addr = page << 12;
+		var i;
+		for (i = 0; i < 1024; i++)
+			this.Lwrite(addr + i * 4, 0);
+		return (addr);
+	}
+}
+
+function cheat() {
+    let a = event.srcElement.id.split('-'); 
+    let n = parseInt(a[1], 10);
+    let e = document.getElementById("answer-" + n);
+    if (e.tagName == "SPAN")
+        e.innerText = answerFormat[n]();
+    else
+        e.value = answerFormat[n]();
+}
+
+function check() {
+    let a = event.srcElement.id.split('-');
+    let n = parseInt(a[1], 10);
+    let e = document.getElementById("answer-" + n);
+    let v;
+    if (e.tagName == "SPAN")
+        v = parseValue[n](e.innerText);
+    else
+        v = parseValue[n](e.value);
+
+    let answer = answerValue[n]();
+    if (v != answer) {
+        correct(n, 0);
+        return;
+    }
+    correct(n, 1);
+    setQ(nextQ[n](answer));
+}
+
+let answerFormat = [answer0Format, answer1Format, answer2Format, answer3Format, answer4Format, answer5Format];
+let answerValue  = [answer0Value , answer1Value , answer2Value , answer3Value, answer4Value, answer5Value];
+let parseValue = [parse0Value, parse1Value, parse2Value, parse3Value, parse4Value,parse5Value];
+let nextQ = [next0Q, next1Q, next2Q, next3Q, next4Q, next5Q];
+
+
+//
+// question FLOW on page
+//
+function next0Q() { return (1); }
+function next1Q(answer) { if (answer == 1742) return (2); return (5); }
+function next2Q() { return (3); }
+function next3Q() { return (3); }
+function next5Q(answer) { if (answer == "No") return (3); return (4); }
+function next4Q() { return (3); }
+
+
+//
+// CORRECT answers of questions
+//
+function answer0Value() {return ((args.pgdir + (args.va >>> 22) * 4).toString(16).padStart(8, "0"));}
+
+function answer1Value() {
+        let i0 = (args.va >>> 22) & 1023;
+        let itbl = mem.Lread(mem.v2p(args.pgdir) + i0 * 4);
+
+        if ((itbl & 1) != 0)
+            return ("1742");
+        return ("1744");
+}
+
+function answer2Value() {
+        let i0 = (args.va >>> 22) & 1023;
+    let itbl = (mem.Lread(mem.v2p(args.pgdir) + i0 * 4) & ~4095) + Math.pow(2, 31);
+
+     return (itbl.toString(16).padStart(8, "0"));
+}
+
+function answer3Value() {
+    let i0 = (args.va >>> 22) & 1023;
+    let itbl = (mem.Lread(mem.v2p(args.pgdir) + i0 * 4) & ~4095) + Math.pow(2, 31);
+    if ((itbl & 1) == 0) {
+        if (args.alloc == 0)
+            return (0);
+
+        itbl = mem.v2p(args.kalloc);
+    }
+    let i1 = (args.va >> 12) & 1023;
+    let a = itbl + i1 * 4;
+
+    return (a.toString(16).padStart(8, "0"));
+}
+
+    function answer4Value() {
+
+        return (args.alloc.toString(10));
+    }
+
+
+function answer5Value() {
+    let r = (["No", "Yes"][args.alloc]);
+    if (r == "Yes") {
+        let i0 = (args.va >>> 22) & 1023;
+        let itbl = (mem.Lread(mem.v2p(args.pgdir) + i0 * 4) & ~4095) + Math.pow(2, 31);
+
+        let address = document.getElementById("address");
+        address.innerText = (itbl + i0 * 4).toString(16).padStart(1, "0");
+    }
+    return (r);
+}
+
+///
+///  Format correct answer for output
+///
+function answer0Format() {
+    return (answer0Value());
+}
+
+function answer1Format() {
+    return (answer1Value());
+}
+
+function answer2Format() {
+    return (answer2Value());
+    }
+
+
+function answer3Format() {
+    return (answer3Value());
+}
+
+    function answer4Format() {
+        return (answer5Value());
+    }
+
+    function answer5Format() {
+        return (answer5Value());
+    }
+ 
+//
+// Parse input string to answer value
+//
+    function parse0Value(s) {
+    return (s);
+    }
+
+
+function parse1Value(s) {
+    return (s);
+}
+
+
+function parse2Value(s) {
+    return (s);
+    }
+
+function parse3Value(s) {
+    return (s);
+    }
+
+    function parse4Value(s) {
+        return (s);
+    }
+    function parse5Value(s) {
+        return (s);
+    }
+
+
+function correct(field, type) {
+    c = document.getElementById("correct" + field);
+    if (type == -1)
+        c.innerText = "";
+    else if (type == 0) {
+        c.innerText = "Incorrect";
+        c.style.backgroundColor = "red";
+    } else {
+        c.innerText = "Correct";
+        c.style.backgroundColor = "green";
+    }
+}
+</script>
+<h1>xv6-rev10 walkpgdir (In PROGRESS)</h1>
+<table align="center">
+    <tr>
+        <td>
+            The arguments to the walkpgdir routine are the following.
+            pgdir: <span id="pgdir"></span>,  va: <span id="va"></span>,  alloc: <span id="alloc"></span>.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table id="Q0">
+                <tr>
+                    <td>What will be the value in pde on the completion of line 1740:</td>
+                </tr>
+                <tr>
+                    <td>
+                        <table>
+                            <tr>
+                                <td>pde: <input type="text" id="answer-0"> <span id="correct0"></span></td>
+                                <td align="center"><input id="check-0" type="submit" value="Submit" onclick="check();"></td>
+                                <td><input id="cheat-0" type="submit" value="Cheat" onclick="cheat(0);"></td>
+                                <td><input id="next-0" type="submit" value="Next" onclick="initQ();"></td>
+                            </tr>
+                            <tr><td id="debug0"></td></tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table id="Q1">
+                <tr>
+                    <td>
+                        Will we continue to run at line 1742  or at line 1744? <span id="answer-1"></span> <span id="correct1"></span>
+                        <input type="submit" id="submit-1" value="Submit" onclick="check();">
+                        <input type="submit" id="cheat-1" value="Cheat" onclick="cheat();">
+                        <input type="submit" id="next-1" value="Next" onclick="initQ();">
+                    </td>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table id="Q2">
+                <tr>
+                    <td>What will be the value in pgtab on the completion of line 1742:</td>
+                </tr>
+                <tr>
+                    <td>
+                        <table>
+                            <tr>
+                                <td>pgtab: <input type="text" id="answer-2"> <span id="correct2"></span></td>
+                                <td align="center"><input id="check-2" type="submit" value="Submit" onclick="check();"></td>
+                                <td><input id="cheat-2" type="submit" value="Cheat" onclick="cheat();"></td>
+                                <td><input id="next-2" type="submit" value="Next" onclick="initQ();"></td>
+                            </tr>
+                            <tr><td id="debug0"></td></tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table id="Q5">
+                <tr>
+                    <td>Will the kalloc at line 1744 be executed?</td>
+                </tr>
+                <tr>
+                    <td>
+                        <table>
+                            <tr>
+                                <td>Yes/No: <span id="answer-5"> </span> <span id="correct5"></span></td>
+                                <td align="center"><input id="check-5" type="submit" value="Submit" onclick="check();"></td>
+                                <td><input id="cheat-5" type="submit" value="Cheat" onclick="cheat();"></td>
+                                <td><input id="next-5" type="submit" value="Next" onclick="initQ();"></td>
+                            </tr>
+                            <tr><td id="debug0"></td></tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table id="Q4">
+                <tr>
+                    <td>Assuming the kalloc returns <span id="kalloc"></span>, what will be the value at address <span id="'address"></span>at the completion of line 1751:</td>
+                </tr>
+                <tr>
+                    <td>
+                        <table>
+                            <tr>
+                                <td>return value: <input id="answer-4" type="text"> <span id="correct4"></span></td>
+                                <td align="center"><input id="check-4" type="submit" value="Submit" onclick="check();"></td>
+                                <td><input id="cheat-4" type="submit" value="Cheat" onclick="cheat();"></td>
+                                <td><input id="next-4" type="submit" value="Next" onclick="initQ();"></td>
+                            </tr>
+                            <tr><td id="debug0"></td></tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table id="Q3">
+                <tr>
+                    <td>What will be the return value of the function?:</td>
+                </tr>
+                <tr>
+                    <td>
+                        <table>
+                            <tr>
+                                <td>return value: <input id="answer-3" type="text"> <span id="correct3"></span></td>
+                                <td align="center"><input id="check-3" type="submit" value="Submit" onclick="check();"></td>
+                                <td><input id="cheat-3" type="submit" value="Cheat" onclick="cheat();"></td>
+                                <td><input id="next-3" type="submit" value="Next" onclick="initQ();"></td>
+                            </tr>
+                            <tr><td id="debug0"></td></tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<h2>Memory Dump</h2>
+	<table id="dump">
+	</table>
+</body>
+
+</html>
+

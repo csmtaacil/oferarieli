@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% assign hebrew = false %}
+{% if page.url contains '_he'%}
+	{% assign hebrew = true %}
+{% endif %}
+{% if hebrew %}
+<html dir='rtl'>
+{% else %}
+<html>
+{% endif %}
+	<head>
+	{% include gtag.js %}
+	{% if hebrew %}
+		<title> {{{page.name_he}}</title>
+	{% else %}
+		<title> {{page.name_en}}</title>
+	{% endif %}
+	<link rel="stylesheet" type="text/css" href="/css/main.css">
+	</head>
+	<body>
+	<header>
+	<table>
+	<tr>
+	<td>
+	{% if hebrew %}
+		<h2>{{page.name_he}}</h2>
+		<h4>בית הספר למדעי המחשב</h4>
+		<h4>המכללה האקדמית תל-אביב</h4>
+	{% else %}
+		<h2>{{page.name_en}}</h2>
+		<h4>Computer Science School</h4>
+		<h4>Academic College of Tel-Aviv</h4>
+	{% endif %}
+	</td>
+	<td class="switch">
+		{% if hebrew %}
+			{% assign s = page.url | remove: '_he.html' | append: '_en.html'%}
+			<a href="{{s}}"><img style="width:1Em;" class="flag" src="/images/us.svg"></a>
+		{% else %}
+			{% assign s = page.url | remove:'_en.html' | append: '_he.html'%}
+			<a href="{{s}}"><img style="width:1Em" class="flag" src="/images/il.svg"></a>
+		{% endif %}
+	</td>
+	</tr>
+	</table>
+	</header>
