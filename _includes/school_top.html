@@ -54,14 +54,28 @@
 		{% endif %}
 		{% if t contains '_he'%}
 			{% assign t = t | replace: '_he', '_en'%}
-			<div dir='ltr' style='text-align: center; font-size: x-small;'>
-			<a href="{{ t }}"><img class="flag" src="/images/us.svg" >
-			to english</a></div>
+			<a href="{{t}}">
+			<table style='text-align: center; border:0;'>
+			<tr><td style="padding: 0;">
+			<img  class="flag" src="/images/us.svg">
+			</td></tr>
+			<tr><td  style="font-size: xx-small; padding: 0;">
+				to english
+			</td></tr>
+			</table>
+			</a>
 		{% else %}
 			{% assign t = t | replace: '_en', '_he'%}
-			<div dir='rtl' style='text-align: center; font-size: x-small;'>
-			<a href="{{ t }}"><img class="flag" src="/images/il.svg">
-						לעברית</a></div>
+			<a href="{{t}}">
+			<table style='text-align: center; border: 0;'>
+			<tr><td style="padding: 0;">
+			<img  class="flag" src="/images/il.svg">
+			</td></tr>
+			<tr><td  style="font-size: xx-small; padding: 0;">
+				לעברית
+			</td></tr>
+			</table>
+			</a>
 		{% endif %}
 	</td>
 	</tr>

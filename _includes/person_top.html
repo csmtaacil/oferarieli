@@ -145,21 +145,32 @@
 			{% else %}
 				{% assign s = page.url | remove: '_he.html' | append: '_en.html'%}
 			{% endif %}
-			<div dir='ltr' style='text-align: center; font-size: x-small'>
-				<a href="{{s}}">
-				<img  class="flag" src="/images/us.svg">
-				to english</a>
-			</div>
+			<a href="{{s}}">
+			<table style='text-align: center; border:0;'>
+			<tr><td style="padding: 0;">
+			<img  class="flag" src="/images/us.svg">
+			</td></tr>
+			<tr><td  style="font-size: xx-small; padding: 0;">
+				to english
+			</td></tr>
+			</table>
+			</a>
 		{% else %}
 			{% if page.name == 'index.html' %}
 				{% assign s = 'index_he.html'%}
 			{% else %}
 				{% assign s = page.url | remove:'_en.html' | append: '_he.html'%}
 			{% endif %}
-			<div dir='rtl' style='text-align: center; font-size: x-small'>
-			<a href="{{s}}"><img  class="flag" src="/images/il.svg">
-				לעברית</a>
-			</div>
+			<a href="{{s}}">
+			<table style='text-align: center; border: 0;'>
+			<tr><td style="padding: 0;">
+			<img  class="flag" src="/images/il.svg">
+			</td></tr>
+			<tr><td  style="font-size: xx-small; padding: 0;">
+				לעברית
+			</td></tr>
+			</table>
+			</a>
 		{% endif %}
 	</td>
 	</tr>
