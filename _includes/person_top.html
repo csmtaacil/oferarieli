@@ -117,29 +117,25 @@
 		<h4>בית הספר למדעי המחשב</h4>
 		<h4>המכללה האקדמית תל-אביב</h4>
 		{% if db.room %}
-		בניין ווסטון חדר {{db.room}}
+		בניין ווסטון חדר {{db.room}} <br/>
 		{% endif %}
 		{% if db.mobile %}
-		<br/>
-		נייד: <span dir='ltr'>{{ db.mobile}} </span>
+		נייד: <span dir='ltr'>{{ db.mobile}} </span> </br>
 		{% endif %}
 		{% if db.personalSite %}
-		<br/>
-		<a href='{{db.personalSite}}'>אתר אישי</a>
+		<a href='{{db.personalSite}}'>אתר אישי</a> <br/>
 		{% endif %}
 	{% else %}
 		<h4>School of Computer Science</h4>
 		<h4>Academic College of Tel-Aviv</h4>
 		{% if db.room %}
-		Weston building room {{db.room}}
+		Weston building room {{db.room}} <br/>
 		{% endif %}
 		{% if db.mobile %}
-			<br/>
-			mobile: {{ db.mobile}} 
+			mobile: {{ db.mobile}}  <br/>
 		{% endif %}
 		{% if db.personalSite %}
-		<br/>
-		<a href='{{db.personalSite}}'>Personal site</a>
+		<a href='{{db.personalSite}}'>Personal site</a><br/>
 		{% endif %}
 	{% endif %}
 	</td>
