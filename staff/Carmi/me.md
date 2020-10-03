@@ -11,6 +11,6 @@ teachingTopics: Operating Systems, Computer Architecture
 researchTopics_he: תורת הקבוצות
 teachingTopics_he: מערכות הפעלה, ארכיטקטורת מחשבים
 email: "carmi"
-personalSite: https://www.cs.mta.ac.il/-carmi
-oldPersonalSite: http://www2.mta.ac.il/~carmi
+personalSite: "https://www.cs.mta.ac.il/carmi"
+oldPersonalSite: "http://www2.mta.ac.il/~carmi"
 ---

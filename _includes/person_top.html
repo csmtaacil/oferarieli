@@ -123,6 +123,10 @@
 		<br/>
 		נייד: <span dir='ltr'>{{ db.mobile}} </span>
 		{% endif %}
+		{% if db.personalSite %}
+		<br/>
+		<a href='{{db.personalSite}}'>אתר אישי</a>
+		{% endif %}
 	{% else %}
 		<h4>School of Computer Science</h4>
 		<h4>Academic College of Tel-Aviv</h4>
@@ -132,6 +136,10 @@
 		{% if db.mobile %}
 			<br/>
 			mobile: {{ db.mobile}} 
+		{% endif %}
+		{% if db.personalSite %}
+		<br/>
+		<a href='{{db.personalSite}}'>Personal site</a>
 		{% endif %}
 	{% endif %}
 	</td>
