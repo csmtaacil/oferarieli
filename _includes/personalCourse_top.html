@@ -9,7 +9,9 @@
 <html>
 {%endif%}
 	<head>
+	{% comment %}
 	{% include gtag.js %}
+	{% endcomment %}
 	{% if hebrew %}
 		<title> {{page.title_he}}</title>
 	{% else %}

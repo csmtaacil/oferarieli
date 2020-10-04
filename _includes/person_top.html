@@ -11,7 +11,9 @@
 <html>
 {%endif%}
 	<head>
+	{% comment %}
 	{% include gtag.js %}
+	{% endcomment %}
 	{% if hebrew %}
 		<title> {{page.title}}, {{ db.firstName_he }} {{db.lastName_he}}</title>
 	{% else %}
