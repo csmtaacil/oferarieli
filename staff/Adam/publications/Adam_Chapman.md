@@ -1,13 +1,21 @@
 ---
 smartGenerated: "true"
-with: "1"
-drop0: "Chapman, Adam"
-secarticle: "Journal publications"
-secarticle_he: "מאמרים בעתונות מדעית"
+alldetails: "1"
+allpublications: "All publications"
+allpublications_he: "כל הפרסומים"
+secarticle: "Journal Publications"
+secarticle_he: "פרסומים בעתונות מדעית"
+secbook: "Books"
+secbook_he: "ספרים"
+secincollection: "Book Chapter"
+secincollection_he: "פרקים בספר"
+secinproceedings: "Conference Proceedings"
+secinproceedings_he: "מאמרים בכנסים"
 listPublications:
  - pubType: article
    pubDate: "2020"
-   with: "Demba Barry and Ahmed Laghribi"
+   allDetails: 1
+   author: "Demba Barry, Adam Chapman and Ahmed Laghribi"
    title: "The descent of biquaternion algebras in characteristic two"
    journal: "Israel J. Math."
    fjournal: "Israel Journal of Mathematics"
@@ -22,6 +30,24 @@ listPublications:
    url: "https://doi.org/10.1007/s11856-019-1958-3"
  - pubType: article
    pubDate: "2020"
+   allDetails: 1
+   author: "Adam Chapman"
+   title: "Factoring octonion polynomials"
+   journal: "Internat. J. Algebra Comput."
+   fjournal: "International Journal of Algebra and Computation"
+   volume: "30"
+   year: "2020"
+   number: "7"
+   pages: "1457&ndash;1463"
+   issn: "0218-1967"
+   mrclass: "17A75 (17A35 17A45 17D05)"
+   mrnumber: "4159896"
+   doi: "10.1142/S0218196720500484"
+   url: "https://doi.org/10.1142/S0218196720500484"
+ - pubType: article
+   pubDate: "2020"
+   allDetails: 1
+   author: "Adam Chapman"
    title: "Field of Iterated Laurent Series and its Brauer
               Group"
    journal: "Bull. Belg. Math. Soc. Simon Stevin"
@@ -37,6 +63,8 @@ listPublications:
    url: "https://doi.org/10.36045/bbms/1590199296"
  - pubType: article
    pubDate: "2020"
+   allDetails: 1
+   author: "Adam Chapman"
    title: "Linkage of symbol $p$-algebras of degree 3"
    journal: "Arch. Math. (Basel)"
    fjournal: "Archiv der Mathematik"
@@ -51,8 +79,25 @@ listPublications:
    url: "https://doi.org/10.1007/s00013-019-01408-4"
    mathjax: 1
  - pubType: article
+   pubDate: "2020"
+   allDetails: 1
+   author: "Adam Chapman"
+   title: "Polynomial equations over octonion algebras"
+   journal: "J. Algebra Appl."
+   fjournal: "Journal of Algebra and its Applications"
+   volume: "19"
+   year: "2020"
+   number: "6"
+   pages: "2050102, 10"
+   issn: "0219-4988"
+   mrclass: "17D05 (15A18 15B33)"
+   mrnumber: "4120079"
+   doi: "10.1142/S0219498820501029"
+   url: "https://doi.org/10.1142/S0219498820501029"
+ - pubType: article
    pubDate: "2019"
-   with: "Andrew Dolphin"
+   allDetails: 1
+   author: "Adam Chapman and Andrew Dolphin"
    title: "Types of linkage of quadratic Pfister forms"
    journal: "J. Number Theory"
    fjournal: "Journal of Number Theory"
@@ -67,7 +112,8 @@ listPublications:
    url: "https://doi.org/10.1016/j.jnt.2018.11.017"
  - pubType: article
    pubDate: "2019"
-   with: "Kelly McKinnie"
+   allDetails: 1
+   author: "Adam Chapman and Kelly McKinnie"
    title: "The $u^n$-invariant and the symbol length of $H_2^n(F)$"
    journal: "Proc. Amer. Math. Soc."
    fjournal: "Proceedings of the American Mathematical Society"
@@ -84,7 +130,8 @@ listPublications:
    mathjax: 1
  - pubType: article
    pubDate: "2019"
-   with: "Jean-Pierre Tignol"
+   allDetails: 1
+   author: "Adam Chapman and Jean-Pierre Tignol"
    title: "Linkage of Pfister forms over $\\Bbb C(x_1,\\dots,x_n)$"
    journal: "Ann. K-Theory"
    fjournal: "Annals of K-Theory"
@@ -100,7 +147,8 @@ listPublications:
    mathjax: 1
  - pubType: article
    pubDate: "2019"
-   with: "Uzi Vishne"
+   allDetails: 1
+   author: "Adam Chapman and Uzi Vishne"
    title: "The alternative Clifford algebra of a ternary quadratic
               form"
    journal: "Comm. Algebra"
@@ -117,7 +165,8 @@ listPublications:
    url: "https://doi.org/10.1080/00927872.2019.1572178"
  - pubType: article
    pubDate: "2019"
-   with: "Eyal Cornfeld"
+   allDetails: 1
+   author: "Eyal Cornfeld and Adam Chapman"
    title: "Classification of Crystalline Topological Insulators and Superconductors with Point Group Symmetries"
    eprint: "1811.01977"
    archiveprefix: "arXiv"
@@ -130,6 +179,8 @@ listPublications:
    year: "2019"
  - pubType: article
    pubDate: "2018"
+   allDetails: 1
+   author: "Adam Chapman"
    title: "Common slots of bilinear and quadratic Pfister forms"
    journal: "Bull. Aust. Math. Soc."
    fjournal: "Bulletin of the Australian Mathematical Society"
@@ -145,7 +196,8 @@ listPublications:
    url: "https://doi.org/10.1017/S0004972718000229"
  - pubType: article
    pubDate: "2018"
-   with: "Andrew Dolphin and David B. Leep"
+   allDetails: 1
+   author: "Adam Chapman, Andrew Dolphin and David B. Leep"
    title: "Triple linkage of quadratic Pfister forms"
    journal: "Manuscripta Math."
    fjournal: "Manuscripta Mathematica"
@@ -161,7 +213,8 @@ listPublications:
    url: "https://doi.org/10.1007/s00229-017-0996-6"
  - pubType: article
    pubDate: "2018"
-   with: "Kelly McKinnie"
+   allDetails: 1
+   author: "Adam Chapman and Kelly McKinnie"
    title: "Kato-Milne cohomology and polynomial forms"
    journal: "J. Pure Appl. Algebra"
    fjournal: "Journal of Pure and Applied Algebra"
@@ -177,6 +230,8 @@ listPublications:
    url: "https://doi.org/10.1016/j.jpaa.2017.12.022"
  - pubType: article
    pubDate: "2017"
+   allDetails: 1
+   author: "Adam Chapman"
    title: "Kummer subspaces of tensor products of cyclic algebras"
    journal: "Proc. Amer. Math. Soc."
    fjournal: "Proceedings of the American Mathematical Society"
@@ -192,6 +247,8 @@ listPublications:
    url: "https://doi.org/10.1090/proc/13599"
  - pubType: article
    pubDate: "2017"
+   allDetails: 1
+   author: "Adam Chapman"
    title: "Symbol length of $p$-algebras of prime exponent"
    journal: "J. Algebra Appl."
    fjournal: "Journal of Algebra and its Applications"
@@ -208,7 +265,8 @@ listPublications:
    mathjax: 1
  - pubType: article
    pubDate: "2017"
-   with: "Michael Chapman"
+   allDetails: 1
+   author: "Adam Chapman and Michael Chapman"
    title: "Symbol $p$-algebras of prime degree and their $p$-central
               subspaces"
    journal: "Arch. Math. (Basel)"
@@ -225,7 +283,8 @@ listPublications:
    mathjax: 1
  - pubType: article
    pubDate: "2017"
-   with: "Andrew Dolphin"
+   allDetails: 1
+   author: "Adam Chapman and Andrew Dolphin"
    title: "Differential forms, linked fields, and the $u$-invariant"
    journal: "Arch. Math. (Basel)"
    fjournal: "Archiv der Mathematik"
@@ -242,7 +301,8 @@ listPublications:
    mathjax: 1
  - pubType: article
    pubDate: "2017"
-   with: "Shira Gilat and Uzi Vishne"
+   allDetails: 1
+   author: "Adam Chapman, Shira Gilat and Uzi Vishne"
    title: "Linkage of quadratic Pfister forms"
    journal: "Comm. Algebra"
    fjournal: "Communications in Algebra"
@@ -258,7 +318,8 @@ listPublications:
    url: "https://doi.org/10.1080/00927872.2017.1298776"
  - pubType: article
    pubDate: "2017"
-   with: "Casey Machen"
+   allDetails: 1
+   author: "Adam Chapman and Casey Machen"
    title: "Standard polynomial equations over division algebras"
    journal: "Adv. Appl. Clifford Algebr."
    fjournal: "Advances in Applied Clifford Algebras"
@@ -274,7 +335,8 @@ listPublications:
    url: "https://doi.org/10.1007/s00006-016-0740-4"
  - pubType: article
    pubDate: "2017"
-   with: "Charlotte Ure"
+   allDetails: 1
+   author: "Adam Chapman and Charlotte Ure"
    title: "Tensor products of cyclic algebras of degree 4 and their
               Kummer subspaces"
    journal: "Comm. Algebra"
@@ -291,7 +353,8 @@ listPublications:
    url: "https://doi.org/10.1080/00927872.2016.1175594"
  - pubType: article
    pubDate: "2016"
-   with: "Andrew Dolphin and Ahmed Laghribi"
+   allDetails: 1
+   author: "Adam Chapman, Andrew Dolphin and Ahmed Laghribi"
    title: "Total linkage of quaternion algebras and Pfister forms in
               characteristic two"
    journal: "J. Pure Appl. Algebra"
@@ -308,7 +371,8 @@ listPublications:
    url: "https://doi.org/10.1016/j.jpaa.2016.05.006"
  - pubType: article
    pubDate: "2016"
-   with: "David J. Grynkiewicz, Eliyahu Matzri, Louis H. Rowen and Uzi Vishne"
+   allDetails: 1
+   author: "Adam Chapman, David J. Grynkiewicz, Eliyahu Matzri, Louis H. Rowen and Uzi Vishne"
    title: "Kummer spaces in symbol algebras of prime degree"
    journal: "J. Pure Appl. Algebra"
    fjournal: "Journal of Pure and Applied Algebra"
@@ -324,7 +388,8 @@ listPublications:
    url: "https://doi.org/10.1016/j.jpaa.2016.04.003"
  - pubType: article
    pubDate: "2015"
-   with: "Demba Barry"
+   allDetails: 1
+   author: "Demba Barry and Adam Chapman"
    title: "Square-central and Artin-Schreier elements in division
               algebras"
    journal: "Arch. Math. (Basel)"
@@ -341,6 +406,8 @@ listPublications:
    url: "https://doi.org/10.1007/s00013-015-0773-2"
  - pubType: article
    pubDate: "2015"
+   allDetails: 1
+   author: "Adam Chapman"
    title: "Chain equivalences for symplectic bases, quadratic forms and
               tensor products of quaternion algebras"
    journal: "J. Algebra Appl."
@@ -356,6 +423,8 @@ listPublications:
    url: "https://doi.org/10.1142/S0219498815500309"
  - pubType: article
    pubDate: "2015"
+   allDetails: 1
+   author: "Adam Chapman"
    title: "Common subfields of $p$-algebras of prime degree"
    journal: "Bull. Belg. Math. Soc. Simon Stevin"
    fjournal: "Bulletin of the Belgian Mathematical Society. Simon Stevin"
@@ -371,6 +440,8 @@ listPublications:
    mathjax: 1
  - pubType: article
    pubDate: "2015"
+   allDetails: 1
+   author: "Adam Chapman"
    title: "Quaternion quadratic equations in characteristic 2"
    journal: "J. Algebra Appl."
    fjournal: "Journal of Algebra and its Applications"
@@ -386,7 +457,8 @@ listPublications:
    url: "https://doi.org/10.1142/S0219498815500334"
  - pubType: article
    pubDate: "2015"
-   with: "Jung-Miao Kuo"
+   allDetails: 1
+   author: "Adam Chapman and Jung-Miao Kuo"
    title: "On the generalized Clifford algebra of a monic polynomial"
    journal: "Linear Algebra Appl."
    fjournal: "Linear Algebra and its Applications"
@@ -401,7 +473,8 @@ listPublications:
    url: "https://doi.org/10.1016/j.laa.2014.12.030"
  - pubType: article
    pubDate: "2013"
-   with: "Uzi Vishne"
+   allDetails: 1
+   author: "Adam Chapman and Uzi Vishne"
    title: "Square-central elements and standard generators for
               biquaternion algebras"
    journal: "Israel J. Math."
@@ -418,6 +491,8 @@ listPublications:
    url: "https://doi.org/10.1007/s11856-013-0005-z"
  - pubType: article
    pubDate: "2012"
+   allDetails: 1
+   author: "Adam Chapman"
    title: "General polynomials over division algebras and left
               eigenvalues"
    journal: "Electron. J. Linear Algebra"
@@ -432,7 +507,8 @@ listPublications:
    url: "https://doi.org/10.13001/1081-3810.1535"
  - pubType: article
    pubDate: "2012"
-   with: "Uzi Vishne"
+   allDetails: 1
+   author: "Adam Chapman and Uzi Vishne"
    title: "Clifford algebras of binary homogeneous forms"
    journal: "J. Algebra"
    fjournal: "Journal of Algebra"
