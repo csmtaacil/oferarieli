@@ -12,6 +12,19 @@ secincollection_he: "פרקים בספר"
 secinproceedings: "Conference Proceedings"
 secinproceedings_he: "מאמרים בכנסים"
 listPublications:
+ - pubType: inproceedings
+   pubDate: "2020"
+   allDetails: 1
+   author: "Jesse Heyninck and Ofer Arieli"
+   editor: "Henry Prakken, Stefano Bistarelli, Francesco Santini and Carlo Taticchi"
+   title: "Argumentative Reflections of Approximation Fixpoint Theory"
+   booktitle: "Proceedings of the 8th International  on Computational Models of Argument, COMMA'20"
+   series: "Frontiers in Artificial Intelligence and Applications"
+   volume: "326"
+   pages: "215&ndash;226"
+   publisher: "IOS Press"
+   year: "2020"
+   doi: "10.3233/FAIA200506"
  - pubType: article
    pubDate: "2020"
    allDetails: 1
@@ -32,6 +45,32 @@ listPublications:
    pages: "557&ndash;562"
    publisher: "AAAI Press"
    year: "2020"
+ - pubType: inproceedings
+   pubDate: "2020"
+   allDetails: 1
+   author: "Ofer Arieli and Christian Stra&szlig;er"
+   editor: "Henry Prakken, Stefano Bistarelli, Francesco Santini and Carlo Taticchi"
+   title: "On Minimality and Consistency Tolerance in Logical Argumentation Frameworks"
+   booktitle: "Proceedings of the 8th International  on Computational Models of Argument, COMMA'20"
+   series: "Frontiers in Artificial Intelligence and Applications"
+   volume: "326"
+   pages: "91&ndash;102"
+   publisher: "IOS Press"
+   year: "2020"
+   doi: "10.3233/FAIA200495"
+ - pubType: inproceedings
+   pubDate: "2020"
+   allDetails: 1
+   author: "Ofer Arieli and Jesse Heyninck"
+   editor: "Giuseppe De Giacomo, Alejandro Catal&aacute;, Bistra Dilkina, Michela Milano, Sen&eacute;n Barro, Alberto Bugar&iacute;n and J&eacute;r&ocirc;me Lang"
+   title: "Prioritized Simple Contrapositive Assumption-Based Frameworks"
+   booktitle: "Proceedings of the 24th European Conference on Artificial Intelligence, ECAI'20"
+   series: "Frontiers in Artificial Intelligence and Applications"
+   volume: "325"
+   pages: "608&ndash;615"
+   publisher: "IOS Press"
+   year: "2020"
+   doi: "10.3233/FAIA200145"
  - pubType: article
    pubDate: "2019"
    allDetails: 1
@@ -120,7 +159,6 @@ listPublications:
    publisher: "College Publications"
    isbn: "978-1-84890-270-1"
    year: "2018"
-   url: "http://collegepublications.co.uk/logic/mlf/?00030"
  - pubType: inproceedings
    pubDate: "2018"
    allDetails: 1
