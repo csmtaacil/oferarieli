@@ -15,22 +15,6 @@ listPublications:
  - pubType: article
    pubDate: "2020"
    allDetails: 1
-   author: "Demba Barry, Adam Chapman and Ahmed Laghribi"
-   title: "The descent of biquaternion algebras in characteristic two"
-   journal: "Israel J. Math."
-   fjournal: "Israel Journal of Mathematics"
-   volume: "235"
-   year: "2020"
-   number: "1"
-   pages: "295&ndash;323"
-   issn: "0021-2172"
-   mrclass: "16K20"
-   mrnumber: "4068786"
-   doi: "10.1007/s11856-019-1958-3"
-   url: "https://doi.org/10.1007/s11856-019-1958-3"
- - pubType: article
-   pubDate: "2020"
-   allDetails: 1
    author: "Adam Chapman"
    title: "Factoring octonion polynomials"
    journal: "Internat. J. Algebra Comput."
@@ -79,7 +63,7 @@ listPublications:
    url: "https://doi.org/10.1007/s00013-019-01408-4"
    mathjax: 1
  - pubType: article
-   pubDate: "2020"
+   pubDate: "2020-06"
    allDetails: 1
    author: "Adam Chapman"
    title: "Polynomial equations over octonion algebras"
@@ -87,6 +71,7 @@ listPublications:
    fjournal: "Journal of Algebra and its Applications"
    volume: "19"
    year: "2020"
+   month: "jun"
    number: "6"
    pages: "2050102, 10"
    issn: "0219-4988"
@@ -94,6 +79,23 @@ listPublications:
    mrnumber: "4120079"
    doi: "10.1142/S0219498820501029"
    url: "https://doi.org/10.1142/S0219498820501029"
+ - pubType: article
+   pubDate: "2020-01"
+   allDetails: 1
+   author: "Demba Barry, Adam Chapman and Ahmed Laghribi"
+   title: "The descent of biquaternion algebras in characteristic two"
+   journal: "Israel J. Math."
+   fjournal: "Israel Journal of Mathematics"
+   volume: "235"
+   year: "2020"
+   month: "jan"
+   number: "1"
+   pages: "295&ndash;323"
+   issn: "0021-2172"
+   mrclass: "16K20"
+   mrnumber: "4068786"
+   doi: "10.1007/s11856-019-1958-3"
+   url: "https://doi.org/10.1007/s11856-019-1958-3"
  - pubType: article
    pubDate: "2019"
    allDetails: 1

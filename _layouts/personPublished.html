@@ -447,6 +447,11 @@
 			{% assign tt = tt | append: ', ' %}
 		{% endif %}
 		{% assign tt = tt | append: s.journal_he %}
+	{% elsif s.fjournal %}
+		{% if tt != '' %}
+			{% assign tt = tt | append: ', ' %}
+		{% endif %}
+		{% assign tt = tt | append: s.fjournal %}
 	{% elsif s.journal %}
 		{% if tt != '' %}
 			{% assign tt = tt | append: ', ' %}
