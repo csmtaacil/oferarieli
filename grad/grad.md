@@ -15,6 +15,7 @@ listPublications:
  - pubType: masterthesis
    pubDate: "9999"
    author_he: "גולן רגב"
+   title: "RepoRank&mdash;A Novel Index for Open Source Evaluation"
    author: "Golan Regev"
    editor: "Uri Globus"
    editor_he: "אורי גלובוס"
