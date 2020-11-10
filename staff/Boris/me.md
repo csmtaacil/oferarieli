@@ -10,5 +10,5 @@ lastName_he: אפשטיין
 email: epstein
 formerDean 	: true
 emeritus: true
-personalSite: "https://www.cs.mta.ac.il/-boris"
+personalSite: "https://www.cs.mta.ac.il/boris"
 ---
