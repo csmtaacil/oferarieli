@@ -23,6 +23,7 @@ listPublications:
    number: "11"
    pages: "1554&ndash;1566"
    publisher: "Springer"
+   doi: "10.1631/FITEE.2000279"
  - pubType: inproceedings
    pubDate: "2019"
    allDetails: 1
