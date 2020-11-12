@@ -12,6 +12,17 @@ secincollection_he: "פרקים בספר"
 secinproceedings: "Conference Proceedings"
 secinproceedings_he: "מאמרים בכנסים"
 listPublications:
+ - pubType: article
+   pubDate: "2020"
+   allDetails: 1
+   author: "Shmuel Tyszberowicz and David Faitelson"
+   title: "Emergence in Cyber Physical Systems: Potential and Risk"
+   journal: "Frontiers of Information Technology &amp; Electronic Engineering"
+   year: "2020"
+   volume: "21"
+   number: "11"
+   pages: "1554&ndash;1566"
+   publisher: "Springer"
  - pubType: inproceedings
    pubDate: "2019"
    allDetails: 1
