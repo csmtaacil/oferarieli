@@ -5,7 +5,7 @@ lastName: Krakovski
 firstName_he: רועי
 lastName_he: קרקובסקי
 room: 317
-email: roikk@mta.ac.il
+email: roikk
 personalSite: 
 researchTopics: Graph Theory and Algorithms
 researchTopics_he: תורת הגרפים ואלגוריתמים
