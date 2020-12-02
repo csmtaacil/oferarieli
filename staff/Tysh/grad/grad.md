@@ -2,9 +2,10 @@
 smartGenerated: "true"
 listPublications:
  - pubType: masterthesis
-   pubDate: "9999"
+   pubDate: "2020-12-01"
    author: "Adi Shabat-Marinov"
    author_he: "עדי שבת-מרינוב"
+   date: "2020-12-01"
    editor: "Shmuel Tyszberowicz and Ran Ettinger"
    editor_he: "שמואל טישברוביץ ורן אטינגר"
    title: "An efficient syntax preserving slide based algorithm for program slicing
@@ -13,9 +14,10 @@ listPublications:
    coadvisor: "Ran Ettinger"
    coadvisor_he: "רן אטינגר"
  - pubType: masterthesis
-   pubDate: "9999"
+   pubDate: "2020-12-02"
    author_he: "שירי מורשטיין"
    author: "Shiri Morshtein"
+   date: "2020-12-02"
    title: "Methods of verifying complexity bounds of algorithms using Dafny"
    editor: "Shmuel Tyszberowicz and Ran Ettinger"
    editor_he: "שמואל טישברוביץ ורן אטינגר"
