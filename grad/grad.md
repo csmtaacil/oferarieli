@@ -50,6 +50,7 @@ listPublications:
    coadvisor: "Ran Ettinger"
    coadvisor_he: "רן אטינגר"
    editor_he: "שמואל טישברוביץ ורן אטינגר"
+   url: "Shiri Morshtein.pdf"
  - pubType: masterthesis
    pubDate: "2020-08-09"
    author_he: "אבי לוין"

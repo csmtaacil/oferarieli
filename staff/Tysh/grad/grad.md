@@ -23,6 +23,7 @@ listPublications:
    editor_he: "שמואל טישברוביץ ורן אטינגר"
    coadvisor: "Ran Ettinger"
    coadvisor_he: "רן אטינגר"
+   url: "Shiri Morshtein.pdf"
  - pubType: masterdiplom
    pubDate: "2015"
    author: "Alex Tilkin"
