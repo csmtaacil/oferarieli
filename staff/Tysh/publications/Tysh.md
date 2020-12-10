@@ -12,6 +12,18 @@ secincollection_he: "פרקים בספר"
 secinproceedings: "Conference Proceedings"
 secinproceedings_he: "מאמרים בכנסים"
 listPublications:
+ - pubType: inproceedings
+   pubDate: "2020"
+   allDetails: 1
+   author: "Bernhard  Beckert, Mihai Herda, Kirsten and Shmuel Tyszberowicz"
+   editor: "Wolfgang Ahrendt, Bernhard Beckert, Richard Bubel and Mattias Ulbrich Reiner Hähnle"
+   title: "Integration of Static and Dynamic Analysis Techniques for Checking Noninterference "
+   booktitle: "Deductive Software Verification: Future Perspectives. "
+   year: "2020"
+   series: "LNCS"
+   volume: "12345 "
+   doi: "10.1007/978-3-030-64354-6_12"
+   publisher: "Springer"
  - pubType: article
    pubDate: "2020"
    allDetails: 1
