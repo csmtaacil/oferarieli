@@ -294,6 +294,32 @@
 			{% endif %}
 		{% endif %}
 
+
+		{% assign t = page.dir | append: 'openings/'%}
+		{% assign existsOpenings = false %}
+		{% assign existsFiles = site.pages | 
+							where: 'dir', t | first %}
+		{% if existsFiles %}
+			{% assign existsOpenings = true %}
+		{% endif %}
+
+		{% if existsOpenings %}
+			{% if hebrew %}
+				{% if page.url contains 'meOpenings' %}
+					הצעות <span dir="auto">M.Sc.</span>
+				{% else %}
+					<li><a class='menu' href="meOpenings_he.html">הצעות <span dir="auto">M.Sc.</span></a></li>
+				{% endif %}
+			{% else %}
+				{% if page.url contains 'meOpenings' %}
+					<li>M.Sc. Openings</li>
+				{% else %}
+					<li><a class='menu' href="meOpenings_en.html">M.Sc. Openings</a></li>
+				{% endif %}
+			{% endif %}
+		{% endif %}
+
+
 	</ul>
 	</nav>
 	</header>
