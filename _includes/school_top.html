@@ -90,12 +90,12 @@
 		{% comment %}
 		{% assign m = "דף ראשי, סגל אקדמי, סגל עמית, סגל מנהלי, סמינרים, לזכרם, משרות פתוחות" %}
 		{% endcomment %}
-		{% assign m = "דף ראשי, סגל אקדמי, סגל עמית, סגל מנהלי, סמינרים, תזות <span dir='auto'>M.Sc.</span>, לזכרם" %}
+		{% assign m = "דף ראשי, סגל אקדמי, סגל עמית, סגל מנהלי, סמינרים, תזות <span dir='auto'>M.Sc.</span>, נושאים למסטר, לזכרם" %}
 	{% else %}
 		{% comment %}
 		{% assign m = "School, Faculty, Adjunct Faculty, Admin staff, Seminars, In memoriam, Faculty Openings" %}
 		{% endcomment %}
-		{% assign m = "School, Faculty, Adjunct Faculty, Admin staff, Seminars, M.Sc. theses, In memoriam" %}
+		{% assign m = "School, Faculty, Adjunct Faculty, Admin staff, Seminars, M.Sc. theses, M.Sc. openings, In memoriam" %}
 	{% endif %}
 
 	{% assign vs = m | split: ','%}
@@ -104,7 +104,7 @@
 		{% assign s = v | strip %}
 		{% assign menuText = menuText | push: s %}
 	{% endfor %}
-	{% assign vs = '/index,/menuFaculty_lastName,/menuAdjunct_lastName,/menuAdmin_lastName,/menuSeminars,/grad/gradList,/menuInMemoriam_lastName,/menuOpenings' 
+	{% assign vs = '/index,/menuFaculty_lastName,/menuAdjunct_lastName,/menuAdmin_lastName,/menuSeminars,/grad/gradList, /menuMscOpenings, /menuInMemoriam_lastName, /menuOpenings' 
 													| split: ',' %}
 	{% assign menuFile = '' | split: ',' %}
 	{% for v in vs %}
