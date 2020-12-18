@@ -15,7 +15,7 @@ listPublications:
  - pubType: inproceedings
    pubDate: "2020"
    allDetails: 1
-   author: "Bernhard  Beckert, Mihai Herda, Kirsten and Shmuel Tyszberowicz"
+   author: "Bernhard  Beckert, Mihai Herda, Michael Kirsten and Shmuel Tyszberowicz"
    editor: "Wolfgang Ahrendt, Bernhard Beckert, Richard Bubel and Mattias Ulbrich Reiner Hähnle"
    title: "Integration of Static and Dynamic Analysis Techniques for Checking Noninterference "
    booktitle: "Deductive Software Verification: Future Perspectives. "
