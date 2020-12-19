@@ -20,6 +20,8 @@ title_he: דרושים Msc @facultycsmta
 <tr>
 <th>
 </th>
+
+
 <th style="text-align: center;">
 {% if hebrew %}
 נושא
@@ -27,6 +29,7 @@ title_he: דרושים Msc @facultycsmta
 Topic
 {% endif %}
 </th>
+
 <th>
 {% if hebrew %}
 מנחה
@@ -34,9 +37,12 @@ Topic
 Advisor
 {% endif %}
 </th>
+
 </tr>
 </thead>
+
 <tbody>
+
 <tr>
 <td>
 1
@@ -47,71 +53,126 @@ Advisor
 <td>
 {% if hebrew %}
 <a href="staff/Raid/mePublished_frml_he.html">
-דר. ראיד סאאבנה
+ראיד סאאבנה
 </a>
 {% else %}
 <a href="staff/Raid/mePublished_frml_en.html">
-Dr. Raid Saabni
+Raid Saabni
 </a>
 {% endif %}
 </td>
 </tr>
+
+
 <tr>
+
 <td>
 2
 </td>
+
 <td>
 	Brain Computer Interface using EEG Headsets
 </td>
+
 <td>
 {% if hebrew %}
 <a href="staff/Raid/mePublished_frml_he.html">
-דר. ראיד סאאבנה
+דאיד סאאבנה
 </a>
 {% else %}
 <a href="staff/Raid/mePublished_frml_en.html">
-Dr. Raid Saabni
+Raid Saabni
 </a>
 {% endif %}
 </td>
+
 </tr>
+
+
 <tr>
+
 <td>
 3
 </td>
+
 <td>
  Research on Federated and Collaborative learning, where private data from different stations can be used to train neural nets without exposing the data to the public.
 </td>
+
 <td>
 {% if hebrew %}
 <a href="staff/Raid/mePublished_frml_he.html">
-דר. ראיד סאאבנה
+ראיד סאאבנה
 </a>
 {% else %}
 <a href="staff/Raid/mePublished_frml_en.html">
-Dr. Raid Saabni
+Raid Saabni
 </a>
 {% endif %}
 </td>
 </tr>
+
+
 <tr>
+
 <td>
 4
 </td>
+
 <td>
  Autonomous robotic navigation system for self-driving robots based on deep learning methodologies. 
 </td>
+
 <td>
 {% if hebrew %}
 <a href="staff/Raid/mePublished_frml_he.html">
-דר. ראיד סאאבנה
+ראיד סאאבנה
 </a>
 {% else %}
 <a href="staff/Raid/mePublished_frml_en.html">
-Dr. Raid Saabni
+Raid Saabni
 </a>
 {% endif %}
 </td>
+
 </tr>
+
+<tr>
+
+<td>
+5
+</td>
+
+<td>
+{% if hebrew %}
+נושאי המחקר העיקריים הם בהנדסת תוכנה ושיטות פורמליות.
+מומלץ לעיין 
+<a href="/staff/Tysh/meOpenings_he.html">
+בתיאור מפורט יותר,
+</a>
+<a href="/staff/Tysh/meGrad_en.html">
+וברשימת תזות מהעבר.
+</a>
+{% else %}
+My research is in software engineering and formal methods.
+See <a href="/staff/Tysh/meOpenings_en.html">more detailed information</a> and 
+	<a href="/staff/Tysh/meGrad_en.html">past M.Sc. theses</a>.
+{% endif %}
+</td>
+
+<td>
+{% if hebrew %}
+<a href="/staff/Tysh/mePublished_frml_he.html">
+שמואל טישברוביץ
+</a>
+{% else %}
+<a href="/staff/Tysh/mePublished_frml_en.html">
+Shmuel Tyszberowicz
+</a>
+{% endif %}
+</td>
+
+</tr>
+
 </tbody>
 </table>
