@@ -42,12 +42,62 @@ Advisor
 </thead>
 
 <tbody>
-
 <tr>
 <td>
 1
 </td>
+
+<td dir="ltr">
+Constructing clustered trees of hypergraphs, such that each cluster induces a path
+</td>
+
 <td>
+{% if hebrew %}
+<a href="/staff/Nili/mePublished_frml_he.html">
+נילי בק 
+</a>
+ומיכל שטרן
+{% else %}
+<a href="/staff/Nili/mePublished_frml_en.html">
+Nili Beck 
+</a>
+and Michal Stern
+{% endif %}
+</td>
+</tr>
+
+<tr>
+
+<td>
+2
+</td>
+
+<td dir="ltr">
+Finding Maximum perfect matching using Manhattan Topology
+</td>
+
+<td>
+{% if hebrew %}
+<a href="/staff/Nili/mePublished_frml_he.html">
+נילי בק 
+</a>
+ומיכל שטרן
+{% else %}
+<a href="/staff/Nili/mePublished_frml_en.html">
+Nili Beck 
+</a>
+and Michal Stern
+{% endif %}
+</td>
+
+</tr>
+
+
+<tr>
+<td>
+3
+</td>
+<td dir="ltr">
  Using Facial Expression Recognition and EEG semi Professional Headsets for improving learning abilities.
 </td>
 <td>
@@ -67,10 +117,10 @@ Raid Saabni
 <tr>
 
 <td>
-2
+4
 </td>
 
-<td>
+<td dir="ltr">
 	Brain Computer Interface using EEG Headsets
 </td>
 
@@ -92,10 +142,10 @@ Raid Saabni
 <tr>
 
 <td>
-3
+5
 </td>
 
-<td>
+<td dir="ltr">
  Research on Federated and Collaborative learning, where private data from different stations can be used to train neural nets without exposing the data to the public.
 </td>
 
@@ -116,10 +166,10 @@ Raid Saabni
 <tr>
 
 <td>
-4
+6
 </td>
 
-<td>
+<td dir="ltr">
  Autonomous robotic navigation system for self-driving robots based on deep learning methodologies. 
 </td>
 
@@ -140,7 +190,7 @@ Raid Saabni
 <tr>
 
 <td>
-5
+7
 </td>
 
 <td>
@@ -150,7 +200,7 @@ Raid Saabni
 <a href="/staff/Tysh/meOpenings_he.html">
 בתיאור מפורט יותר,
 </a>
-<a href="/staff/Tysh/meGrad_en.html">
+<a href="/staff/Tysh/meGrad_he.html">
 וברשימת תזות מהעבר.
 </a>
 {% else %}
