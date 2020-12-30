@@ -4,6 +4,7 @@ firstName: Ofer
 lastName: Arieli
 firstName_he: עופר
 lastName_he: אריאלי
+rank: 3
 room: 364
 email: oarieli
 personalSite: http://www2.mta.ac.il/~oarieli
