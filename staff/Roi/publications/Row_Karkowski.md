@@ -59,7 +59,7 @@ listPublications:
  - pubType: article
    pubDate: "2013"
    author: "Roi Krakovski, D. Christopher Stephens and Xiaoya Zha"
-   title: "Subdivisions of \\emphK\\(_\\mbox5\\) in Graphs Embedded on Surfaces
+   title: "Subdivisions of $K_5$ in Graphs Embedded on Surfaces
                With Face-Width at Least 5"
    journal: "J. Graph Theory"
    volume: "74"
@@ -71,6 +71,7 @@ listPublications:
    timestamp: "Fri, 02 Oct 2020 01:00:00 +0200"
    biburl: "https://dblp.org/rec/journals/jgt/KrakovskiSZ13.bib"
    bibsource: "dblp computer science bibliography, https://dblp.org"
+   mathjax: 1
  - pubType: article
    pubDate: "2012"
    author: "Elad Horev, Matthew J. Katz, Roi Krakovski and Atsuhiro Nakamoto"
@@ -117,7 +118,7 @@ listPublications:
    timestamp: "Fri, 27 Mar 2020 00:00:00 +0100"
    biburl: "https://dblp.org/rec/conf/swat/HorevKS10.bib"
    bibsource: "dblp computer science bibliography, https://dblp.org"
- - pubType: article
+ - pubType: other
    pubDate: "2010"
    author: "Elad Horev, Roi Krakovski and Shakhar Smorodinsky"
    title: "Conflict-Free Coloring Made Stronger"
